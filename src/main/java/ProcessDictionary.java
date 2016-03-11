@@ -13,6 +13,7 @@ public class ProcessDictionary {
                 .limit(10)
                 .forEach(w -> System.out.printf("%s (%d)%n", w, w.length()));
 
+        /*
         Optional<String> max = Files.lines(
                 Paths.get("/", "usr", "share", "dict", "web2"))
                 .filter(s -> s.length() > 10)
@@ -22,6 +23,6 @@ public class ProcessDictionary {
 
         System.out.println(max.isPresent() ? max.get() : max.orElse("None found"));
         System.out.println(max.orElseGet(() -> "nothing"));
-        System.out.println(max.orElse("nothing"));
+        System.out.println(max.orElse("nothing")); */
     }
 }

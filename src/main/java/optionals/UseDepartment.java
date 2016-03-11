@@ -10,14 +10,16 @@ public class UseDepartment {
         Department d = new Department();
         d.setBoss(mrSlate);
 
-        System.out.println(d.getBoss()
+        System.out.println(
+                d.getBoss()
                 .map(Manager::getName)
                 .orElse("Unknown"));
 
         Company co = new Company();
         co.setDepartment(d);
 
-        System.out.println(co.getDepartment()
+        System.out.println(
+                co.getDepartment()
                 .flatMap(Department::getBoss)
                 .map(Manager::getName)
                 .orElse("Unknown"));

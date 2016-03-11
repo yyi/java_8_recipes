@@ -44,7 +44,10 @@ public class StreamsDemo {
     public Double sumRandoms2(int num) {
         return Stream.generate(Math::random)
                 .limit(num)
-                .reduce((x, y) -> x + y)
+                .reduce((acc, n) -> {
+                    System.out.printf("Acc=%s, n=%s%n", acc, n);
+                    return acc + n;
+                })
                 .orElse(0.0);
     }
 

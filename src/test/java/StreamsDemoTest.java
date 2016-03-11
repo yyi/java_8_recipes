@@ -44,6 +44,11 @@ public class StreamsDemoTest {
     }
 
     @Test
+    public void demoReduceWithAccumulator() {
+        demo.sumRandoms2(10);
+    }
+
+    @Test
     public void testSumRandoms3() throws Exception {
         int num = 1000;
         double err = num * 0.05;
