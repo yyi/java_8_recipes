@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SideEffectDemo {
+public class UsingCollect {
     public static void main(String[] args) {
         List<String> strings = Arrays.asList(
                 "this", "is", "a", "list", "of", "strings");

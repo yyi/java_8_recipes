@@ -19,7 +19,7 @@ public class Iteration {
             System.out.println(n);
         });
 
-        // Simple form of lambda
+        // Simplified form of lambda
         integers.forEach(n -> System.out.println(n));
 
         // Method reference

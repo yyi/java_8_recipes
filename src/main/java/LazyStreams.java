@@ -1,15 +1,16 @@
-import java.util.stream.Stream;
+import java.util.stream.IntStream;
 
-public class Miscellaneous {
+public class LazyStreams {
 
     public static int multByTwo(int n) {
-        System.out.printf("Inside multByTwo with arg %d%n", n);
+//        System.out.printf("Inside multByTwo with arg %d%n", n);
         return n * 2;
     }
 
     public static void main(String[] args) {
-        int firstEvenDivBy3 = Stream.of(3, 1, 4, 1, 5, 9)
-                .mapToInt(Miscellaneous::multByTwo)
+        // Find first even double between 200 and 400 divisble by 3
+        int firstEvenDivBy3 = IntStream.range(100, 200)
+                .map(LazyStreams::multByTwo)
                 .filter(n -> n % 3 == 0)
                 .findFirst()
                 .getAsInt();

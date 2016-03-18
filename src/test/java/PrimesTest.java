@@ -25,7 +25,7 @@ public class PrimesTest {
     @Test // Functional :)
     public void testIsPrimeWithStreams() throws Exception {
         assertTrue(Stream.of(2, 3, 5, 7, 11, 13, 17, 19)
-                .allMatch(n -> p.isPrime(n)));
+                .allMatch(p::isPrime));
     }
 
     @Test

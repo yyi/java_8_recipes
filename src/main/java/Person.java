@@ -6,6 +6,6 @@ public class Person {
     }
 
     public String toString() {
-        return String.format(String.format("Person(name:%s)", name));
+        return String.format("Person(name:%s)", name);
     }
 }
