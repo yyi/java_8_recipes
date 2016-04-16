@@ -43,7 +43,7 @@ public class PrimesTest {
         List<Integer> expected = Arrays.asList(2, 3, 5, 5, 7, 7);
 
         List<Integer> computed = Stream.of(1, 2, 3, 4, 5, 6)
-                .map(n -> p.nextPrime(n))
+                .map(p::nextPrime)
                 .collect(Collectors.toList());
 
         assertTrue( expected.equals(computed) );

@@ -1,6 +1,8 @@
+import java.nio.file.DirectoryStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -20,13 +22,15 @@ public class ClosureVariables {
         total = 0;
         Stream.of(3, 1, 4, 1, 5, 9, 2, 6, 5)
                 .forEach(n -> {
-                            // Can't modify "total"
-                            // total += n
+                             // Can't modify "total"
+                             // total += n;
                         }
                 );
 
         // Functional, no shared mutable state
-        total = IntStream.of(3, 1, 4, 1, 5, 9, 2, 6, 5).sum();
+        total = IntStream.of(3, 1, 4, 1, 5, 9, 2, 6, 5)
+                // .parallel()
+                .sum();
         System.out.printf("The total is %d%n", total);
 
 
@@ -34,19 +38,32 @@ public class ClosureVariables {
         // Find even-length strings
         List<String> strings = Arrays.asList("this", "is", "a",
                 "list", "of", "strings");
+        Predicate<String> evenlengths = (String s) -> {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+            }
+            System.out.println(Thread.currentThread().getName());
+            return s.length() % 2 == 0;
+        };
 
+        /*
         // Side effects --> legal, but not safe
         List<String> evenLengths = new ArrayList<>();
         strings.stream()
                 .filter(s -> s.length() % 2 == 0)
                 .forEach(evenLengths::add);
         System.out.println(evenLengths);
+        */
 
         // No side-effects
-        List<String> evens = strings.stream()
-                .filter(s -> s.length() % 2 == 0)
+        long start = System.nanoTime();
+        List<String> evens = strings.parallelStream()
+                .filter(evenlengths)
                 .collect(Collectors.toList());
+        long end = System.nanoTime();
         System.out.println(evens);
+        System.out.printf("Time: %s%n", (end - start) / 1e9);
 
     }
 }

@@ -46,8 +46,7 @@ public class JavaTimeDemos {
         long gap = groundHogDay.until(firstDayofSpring, ChronoUnit.DAYS);
         System.out.println("There are " + gap +
                 " days between GroundHog Day and 1st day of Spring");
-        System.out.println("That's " + (gap / 7) + " weeks and " +
-                (gap % 7) + " days");
+        System.out.printf("That's %d weeks and %d days%n", gap / 7, gap % 7);
 
         // Fun with time zones
         Set<String> availableTimeZones = ZoneId.getAvailableZoneIds();

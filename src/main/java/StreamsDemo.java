@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.math.BigDecimal.ONE;
+import static java.util.stream.Collectors.joining;
 
 public class StreamsDemo {
     private List<String> strings = Arrays.asList("this", "is", "a",
@@ -13,13 +14,13 @@ public class StreamsDemo {
 
     public String joinStream() {
         return Stream.of("this", "is", "a", "stream", "of", "strings")
-                .collect(Collectors.joining(" "));
+                .collect(joining(" "));
     }
 
     public String joinUpperCase() {
         return strings.stream()
                 .map(String::toUpperCase)
-                .collect(Collectors.joining(" "));
+                .collect(joining(" "));
     }
 
     public int getTotalLength() {
