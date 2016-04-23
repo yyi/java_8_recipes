@@ -18,11 +18,7 @@ public class LazyStreams {
                 .map(LazyStreams::multByTwo)
                 .filter(LazyStreams::divByThree)
                 .findFirst()
-                .getAsInt();
+                .orElse(0);
         System.out.printf("First even divisible by 3 is %d%n", firstEvenDivBy3);
-
-        long count = IntStream.rangeClosed(100, 200)
-                .count();
-        System.out.printf("There are %d elements in the stream%n", count);
     }
 }

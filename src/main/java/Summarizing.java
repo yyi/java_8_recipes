@@ -7,8 +7,7 @@ public class Summarizing {
         DoubleSummaryStatistics stats =
                 Stream.generate(Math::random)
                 .limit(1000)
-                .collect(Collectors.summarizingDouble(
-                        Double::doubleValue));
+                .collect(Collectors.summarizingDouble(Double::doubleValue));
         System.out.println(stats);
     }
 }

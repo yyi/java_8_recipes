@@ -38,7 +38,7 @@ public class StreamsDemoTest {
 
     @Test
     public void testSumRandoms2() throws Exception {
-        int num = 1000;
+        int num = 10;
         double err = num * 0.05;
         assertThat(demo.sumRandoms2(num), is(closeTo(num/2, err)));
     }

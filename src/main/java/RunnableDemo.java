@@ -1,6 +1,6 @@
 public class RunnableDemo {
     public static void main(String[] args) {
-        Runnable r = () -> System.out.println("inside runnable");
+        Runnable r = () -> System.out.println("inside runnable using a lambda");
         new Thread(r).start();
 
         new Thread(new Runnable() {
@@ -10,6 +10,6 @@ public class RunnableDemo {
             }
         }).start();
 
-        new Thread(() -> System.out.println("hello")).start();
+        new Thread(() -> System.out.println("inside Thread as arg")).start();
     }
 }

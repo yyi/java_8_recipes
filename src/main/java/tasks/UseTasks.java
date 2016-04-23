@@ -2,6 +2,10 @@ package tasks;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.partitioningBy;
 
 public class UseTasks {
     public static void main(String[] args) {
@@ -17,7 +21,12 @@ public class UseTasks {
                 .filter(Task::isActive)
                 .mapToInt(Task::getDuration)
                 .average()
-                .getAsDouble();
+                .orElse(0.0);
+
+        Map<Boolean, List<Task>> taskMap = tasks.stream()
+                .collect(partitioningBy(Task::isActive));
+
+        System.out.println(taskMap);
 
         System.out.printf(
                 "The average duration of the active tasks is %s%n",
