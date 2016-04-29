@@ -1,10 +1,8 @@
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
@@ -46,6 +44,6 @@ public class PrimesTest {
                 .map(p::nextPrime)
                 .collect(Collectors.toList());
 
-        assertTrue( expected.equals(computed) );
+        assertTrue(expected.equals(computed));
     }
 }

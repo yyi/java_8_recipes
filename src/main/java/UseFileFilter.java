@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class UseFileFilter {
     public static void main(String[] args) {
@@ -8,7 +9,7 @@ public class UseFileFilter {
         System.out.println(directory.getAbsolutePath());
 
         // Anonymous inner class
-        Arrays.stream(directory.list(new FilenameFilter() {
+        Stream.of(directory.list(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
                 return name.endsWith("java");
@@ -16,13 +17,13 @@ public class UseFileFilter {
         })).forEach(System.out::println);
 
         // Use lambda expression instead
-        Arrays.stream(
+        Stream.of(
                 directory.list((dir, name) -> name.endsWith("java")))
                 .forEach(System.out::println);
 
         // Assign lambda to variable
         FilenameFilter javaFiles = (dir, name) -> name.endsWith("java");
-        Arrays.stream(
+        Stream.of(
                 directory.list(javaFiles))
                 .forEach(System.out::println);
     }

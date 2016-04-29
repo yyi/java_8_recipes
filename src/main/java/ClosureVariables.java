@@ -1,5 +1,3 @@
-import java.nio.file.DirectoryStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
@@ -22,8 +20,8 @@ public class ClosureVariables {
         total = 0;
         Stream.of(3, 1, 4, 1, 5, 9, 2, 6, 5)
                 .forEach(n -> {
-                             // Can't modify "total"
-                             // total += n;
+                            // Can't modify "total"
+                            // total += n;
                         }
                 );
 
@@ -32,7 +30,6 @@ public class ClosureVariables {
                 // .parallel()
                 .sum();
         System.out.printf("The total is %d%n", total);
-
 
 
         // Find even-length strings

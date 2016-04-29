@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Optional;
 
 public class OptionalMap {
-    private Map<String,Integer> map = new HashMap<>();
+    private Map<String, Integer> map = new HashMap<>();
 
     public OptionalMap() {
         map.put("a", 1);

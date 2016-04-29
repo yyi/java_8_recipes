@@ -3,7 +3,8 @@ package optionals;
 public class Manager {
     private String name;
 
-    public Manager() {}
+    public Manager() {
+    }
 
     public Manager(String name) {
         this.name = name;

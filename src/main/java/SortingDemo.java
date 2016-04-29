@@ -81,15 +81,15 @@ public class SortingDemo {
     // Sort by length with sorted
     public List<String> lengthSortUsingSorted() {
         return sampleStrings.stream()
-                .sorted( (s1, s2) -> s1.length() - s2.length() )
+                .sorted((s1, s2) -> s1.length() - s2.length())
                 .collect(Collectors.toList());
     }
 
     // Sort by length then alpha using sorted
     public List<String> lengthSortThenAlphaSortUsingSorted() {
         return sampleStrings.stream()
-                .sorted( Comparator.comparing(String::length)
-                    .thenComparing(Comparator.naturalOrder()) )
+                .sorted(Comparator.comparing(String::length)
+                        .thenComparing(Comparator.naturalOrder()))
                 .collect(Collectors.toList());
     }
 }

@@ -3,14 +3,14 @@ import org.junit.Test;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class SortingDemoTest {
     private SortingDemo demo = new SortingDemo();
 
     private void checkAlphabetical(List<String> strings) {
         strings.stream()
-                .reduce( (prev, curr) -> {
+                .reduce((prev, curr) -> {
                             assertTrue(prev.compareTo(curr) <= 0);
                             return curr;
                         }
@@ -19,7 +19,7 @@ public class SortingDemoTest {
 
     private void checkLength(List<String> strings) {
         strings.stream()
-                .reduce( (prev, curr) -> {
+                .reduce((prev, curr) -> {
                             assertTrue(prev.length() <= curr.length());
                             return curr;
                         }
@@ -62,7 +62,7 @@ public class SortingDemoTest {
     @Test
     public void testLengthSortThenAlphaSort() throws Exception {
         demo.lengthSortThenAlphaSort().stream()
-                .reduce( (prev, curr) -> {
+                .reduce((prev, curr) -> {
                     if (prev.length() != curr.length()) {
                         assertTrue(prev.length() <= curr.length());
                     } else {
@@ -85,7 +85,7 @@ public class SortingDemoTest {
     @Test
     public void testLengthSortThenAlphaSortUsingSorted() throws Exception {
         demo.lengthSortThenAlphaSortUsingSorted().stream()
-                .reduce( (prev, curr) -> {
+                .reduce((prev, curr) -> {
                     if (prev.length() != curr.length()) {
                         assertTrue(prev.length() <= curr.length());
                     } else {

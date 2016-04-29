@@ -1,8 +1,9 @@
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.number.IsCloseTo.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.number.IsCloseTo.closeTo;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class StreamsDemoTest {
     private StreamsDemo demo = new StreamsDemo();
@@ -33,14 +34,14 @@ public class StreamsDemoTest {
     public void testSumRandoms1() throws Exception {
         int num = 1000;
         double err = num * 0.05;
-        assertThat(demo.sumRandoms1(num), is(closeTo(num/2, err)));
+        assertThat(demo.sumRandoms1(num), is(closeTo(num / 2, err)));
     }
 
     @Test
     public void testSumRandoms2() throws Exception {
         int num = 10;
         double err = num * 0.05;
-        assertThat(demo.sumRandoms2(num), is(closeTo(num/2, err)));
+        assertThat(demo.sumRandoms2(num), is(closeTo(num / 2, err)));
     }
 
     @Test

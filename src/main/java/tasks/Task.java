@@ -6,7 +6,8 @@ public class Task {
     private int duration;
     private String name;
 
-    public Task() {}
+    public Task() {
+    }
 
     public Task(Integer id, boolean active, int duration, String name) {
         this.id = id;
