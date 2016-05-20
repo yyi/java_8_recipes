@@ -17,7 +17,7 @@ public class ProcessDictionary {
 
         Optional<String> max = Files.lines(
                 Paths.get("/", "usr", "share", "dict", "web2"))
-                .filter(s -> s.length() > 10)
+                // .filter(s -> s.length() > 10)
                 .map(String::toLowerCase)
                 .sorted(Comparator.comparing(String::length).reversed())
                 .findFirst();

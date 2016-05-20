@@ -13,7 +13,7 @@ public class StreamsDemo {
             "list", "of", "strings");
 
     public String joinStream() {
-        return Stream.of("this", "is", "a", "stream", "of", "strings")
+        return strings.stream()
                 .collect(Collectors.joining(" "));
     }
 
@@ -26,6 +26,12 @@ public class StreamsDemo {
     public int getTotalLength() {
         return strings.stream()
                 .collect(Collectors.summingInt(String::length));
+    }
+
+    public int getTotalLengthFromMapping() {
+        return strings.stream()
+                .mapToInt(String::length)
+                .sum();
     }
 
     public double sumFirstNBigDecimals(int num) {

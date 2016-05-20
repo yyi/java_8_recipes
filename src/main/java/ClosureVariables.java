@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
@@ -60,7 +61,7 @@ public class ClosureVariables {
                 .collect(Collectors.toList());
         long end = System.nanoTime();
         System.out.println(evens);
-        System.out.printf("Time: %s%n", (end - start) / 1e9);
+        System.out.printf("Time: %s%n", (end - start) / 1e6);
 
     }
 }

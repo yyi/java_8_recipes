@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class UsePerson {
@@ -12,6 +10,12 @@ public class UsePerson {
         return names.stream()
                 .map(name -> new Person(name))
                 .collect(Collectors.toList());
+    }
+
+    public Deque<Person> createPersonDeque() {
+        return names.stream()
+                .map(Person::new)
+                .collect(Collectors.toCollection(ArrayDeque::new));
     }
 
     public Person[] createPersonArray() {
@@ -30,6 +34,7 @@ public class UsePerson {
         UsePerson up = new UsePerson();
         System.out.println(up.createPersonList());
         System.out.println(up.createPersonListUsingNew());
+        System.out.println(up.createPersonDeque());
         Arrays.stream(up.createPersonArray())
                 .forEach(System.out::println);
     }

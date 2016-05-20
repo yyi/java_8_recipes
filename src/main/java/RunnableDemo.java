@@ -16,10 +16,11 @@ public class RunnableDemo {
 
         new Thread(() -> System.out.println("inside Thread as arg")).start();
 
-        ExecutorService service = Executors.newCachedThreadPool();
+        ExecutorService service = Executors.newFixedThreadPool(4);
         IntStream.range(0, 10)
                 .forEach(n -> {
-                    service.submit(() -> System.out.printf("executor service with %d%n", n));
+                    service.submit(() ->
+                            System.out.printf("executor service with %d%n", n));
                 });
 
         service.shutdown();
