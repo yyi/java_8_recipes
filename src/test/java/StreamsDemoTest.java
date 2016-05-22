@@ -10,7 +10,7 @@ public class StreamsDemoTest {
 
     @Test
     public void testJoinStream() {
-        assertEquals("this is a stream of strings", demo.joinStream());
+        assertEquals("this is a list of strings", demo.joinStream());
     }
 
     @Test
