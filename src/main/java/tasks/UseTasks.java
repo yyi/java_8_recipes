@@ -3,8 +3,11 @@ package tasks;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.partitioningBy;
+import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.*;
 
 public class UseTasks {
     public static void main(String[] args) {
@@ -20,23 +23,75 @@ public class UseTasks {
                 new Task(9, true, 3, "Build a giant wooden hare"),
                 new Task(10, false, 2, "Attack Swamp Castle"),
                 new Task(11, true, 1, "Applaud Tim the Enchanter"),
-                new Task(12, false, 2, "Oppress peasant")
+                new Task(12, false, 2, "Oppress peasant"),
+                new Task(null, true, 2, "Ask hard questions during Java 8 talk")
         );
 
+
+        double sumIdOfActiveTasks = tasks.stream()
+                .filter((task) -> task.isActive() && task.getId() != null)
+                .mapToInt(Task::getId)
+                .sum();
+        System.out.println("Sum of id's of active tasks: " + sumIdOfActiveTasks);
+
         double averageDuration = tasks.stream()
-                .filter(Task::isActive)
+                .filter((task) -> task.isActive())
                 .mapToInt(Task::getDuration)
-                .average()
-                .orElse(0.0);
-
-        Map<Boolean, List<Task>> taskMap = tasks.stream()
-                .collect(partitioningBy(Task::isActive));
-
-        System.out.println(taskMap);
+                .average().orElse(0.0);
 
         System.out.printf(
                 "The average duration of the active tasks is %s%n",
                 averageDuration);
+
+        // Sort by duration
+        List<Task> taskList = tasks.stream()
+                .sorted(comparing(Task::getDuration))
+                .collect(toList());
+
+        // Sort by duration, then by name alphabetically
+        taskList = tasks.stream()
+                .sorted(comparing(Task::getDuration)
+                        .thenComparing(Task::getName))
+                .collect(toList());
+
+        // Sort by duration, then by name, reverse alpha
+        taskList = tasks.stream()
+                .sorted(comparing(Task::getDuration)
+                        .thenComparing(Task::getName).reversed())
+                .collect(toList());
+
+        // Group tasks by duration
+        Map<Integer, List<Task>> taskMap = tasks.stream()
+                .collect(groupingBy(Task::getDuration));
+        taskMap.forEach((key, val) -> System.out.printf("%s = %s%n", key, val));
+
+        // Collect the tasks into a list
+        Set<Task> taskSet = tasks.stream()
+                .collect(Collectors.toSet());
+        System.out.println(taskList);
+
+        // Partition tasks in active and inactive
+        Map<Boolean, List<Task>> taskPartition = tasks.stream()
+                .collect(partitioningBy(Task::isActive));
+        taskPartition.forEach((key, val) -> System.out.println(key + " : " + val));
+
+        // Group by durations
+        Map<Integer, List<Task>> taskDurations = tasks.stream()
+                .collect(groupingBy(Task::getDuration));
+        taskDurations.forEach((k, v) -> System.out.println(k + " : " + v));
+
+        // Group task names by duration (downstream collector)
+        Map<Integer, List<String>> nameMap = tasks.stream()
+                .filter(task -> task.getId() != null)
+                .collect(groupingBy(Task::getDuration, mapping(Task::getName, toList())));
+        nameMap.forEach((k, v) -> System.out.println(k + " : " + v));
+
+        // Group task names by duration (downstream collector)
+        Map<Integer, Long> numInEachGroup = tasks.stream()
+                .filter(task -> task.getId() != null)
+                .collect(groupingBy(Task::getDuration, counting()));
+        nameMap.forEach((k, v) -> System.out.println(k + " : " + v));
+
     }
 }
 

@@ -25,6 +25,6 @@ public class UseFileFilter {
         FilenameFilter javaFiles = (dir, name) -> name.endsWith("java");
         Stream.of(
                 directory.list(javaFiles))
-                .forEach(System.out::println);
+                .forEach((x) -> System.out.println(x + " has size " + x.length()));
     }
 }

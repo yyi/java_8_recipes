@@ -7,6 +7,7 @@ public class RunnableDemo {
         Runnable r = () -> System.out.println("inside runnable using a lambda");
         new Thread(r).start();
 
+        // Use in Java 7 or earlier:
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -20,7 +21,7 @@ public class RunnableDemo {
         IntStream.range(0, 10)
                 .forEach(n -> {
                     service.submit(() ->
-                            System.out.printf("executor service with %d%n", n));
+                            System.out.printf(String.format("executor service with %d%n", n)));
                 });
 
         service.shutdown();

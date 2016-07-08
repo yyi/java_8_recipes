@@ -45,14 +45,14 @@ public class ClosureVariables {
             return s.length() % 2 == 0;
         };
 
-        /*
+
         // Side effects --> legal, but not safe
         List<String> evenLengths = new ArrayList<>();
         strings.stream()
                 .filter(s -> s.length() % 2 == 0)
                 .forEach(evenLengths::add);
         System.out.println(evenLengths);
-        */
+
 
         // No side-effects
         long start = System.nanoTime();
@@ -61,7 +61,9 @@ public class ClosureVariables {
                 .collect(Collectors.toList());
         long end = System.nanoTime();
         System.out.println(evens);
-        System.out.printf("Time: %s%n", (end - start) / 1e6);
+        System.out.printf("Time: %s%s%n", (end - start) / 1e9, "sec");
+
+
 
     }
 }
