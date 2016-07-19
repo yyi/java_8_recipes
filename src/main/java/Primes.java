@@ -1,3 +1,4 @@
+import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
 public class Primes {
@@ -8,9 +9,10 @@ public class Primes {
     }
 
     public int nextPrime(int num) {
-        return IntStream.iterate(num + 1, n -> n + 1)
+        OptionalInt optionalInt = IntStream.iterate(num + 1, n -> n + 1)
                 .filter(this::isPrime)
-                .findFirst()
-                .getAsInt();
+                .findFirst();
+
+        return optionalInt.orElseThrow(IllegalArgumentException::new);
     }
 }
