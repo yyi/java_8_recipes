@@ -23,8 +23,8 @@ public class UseTasks {
                 new Task(9, true, 3, "Build a giant wooden hare"),
                 new Task(10, false, 2, "Attack Swamp Castle"),
                 new Task(11, true, 1, "Applaud Tim the Enchanter"),
-                new Task(12, false, 2, "Oppress peasant"),
-                new Task(null, true, 2, "Ask hard questions during Java 8 talk")
+                new Task(12, false, 2, "Oppress peasant")
+                // new Task(null, true, 2, "Ask hard questions during Java 8 talk")
         );
 
 
@@ -35,7 +35,7 @@ public class UseTasks {
         System.out.println("Sum of id's of active tasks: " + sumIdOfActiveTasks);
 
         double averageDuration = tasks.stream()
-                .filter((task) -> task.isActive())
+                .filter(Task::isActive)
                 .mapToInt(Task::getDuration)
                 .average().orElse(0.0);
 
@@ -48,11 +48,17 @@ public class UseTasks {
                 .sorted(comparing(Task::getDuration))
                 .collect(toList());
 
+        System.out.println("Sorted by duration:");
+        taskList.forEach(System.out::println);
+
         // Sort by duration, then by name alphabetically
         taskList = tasks.stream()
                 .sorted(comparing(Task::getDuration)
                         .thenComparing(Task::getName))
                 .collect(toList());
+
+        System.out.println("Sorted by duration then by name");
+        taskList.forEach(System.out::println);
 
         // Sort by duration, then by name, reverse alpha
         taskList = tasks.stream()
@@ -65,15 +71,22 @@ public class UseTasks {
                 .collect(groupingBy(Task::getDuration));
         taskMap.forEach((key, val) -> System.out.printf("%s = %s%n", key, val));
 
-        // Collect the tasks into a list
+
+        // Collect the tasks into a set
         Set<Task> taskSet = tasks.stream()
                 .collect(Collectors.toSet());
         System.out.println(taskList);
 
+
         // Partition tasks in active and inactive
         Map<Boolean, List<Task>> taskPartition = tasks.stream()
                 .collect(partitioningBy(Task::isActive));
-        taskPartition.forEach((key, val) -> System.out.println(key + " : " + val));
+
+        System.out.println("Tasks grouped by isActive:");
+        taskPartition.forEach((key, val) -> {
+            System.out.println(key);
+            val.forEach(System.out::println);
+        });
 
         // Group by durations
         Map<Integer, List<Task>> taskDurations = tasks.stream()

@@ -12,13 +12,13 @@ public class UseFileFilter {
         Stream.of(directory.list(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
-                return name.endsWith("java");
+                return name.endsWith(".java");
             }
         })).forEach(System.out::println);
 
         // Use lambda expression instead
         Stream.of(
-                directory.list((dir, name) -> name.endsWith("java")))
+                directory.list((dir, name) -> name.endsWith(".java")))
                 .forEach(System.out::println);
 
         // Assign lambda to variable

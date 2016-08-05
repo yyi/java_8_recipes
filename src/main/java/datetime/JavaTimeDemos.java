@@ -57,7 +57,7 @@ public class JavaTimeDemos {
                 .forEach(System.out::println);
 
         ZonedDateTime missing = ZonedDateTime.of(
-                LocalDate.of(2015, 3, 8),
+                LocalDate.of(2015, Month.MARCH, 8),
                 LocalTime.of(2, 30),      // skipped by daylight savings
                 ZoneId.of("America/Chicago"));
         System.out.println(missing);

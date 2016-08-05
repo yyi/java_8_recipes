@@ -7,6 +7,16 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class ClosureVariables {
+
+    private static boolean isEvenLength(String s) {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+        }
+        System.out.printf("%s with %s%n", Thread.currentThread().getName(), s);
+        return s.length() % 2 == 0;
+    }
+
     public static void main(String[] args) {
 
         // Sum using loop (iterative and shared mutable state)
@@ -57,12 +67,11 @@ public class ClosureVariables {
         // No side-effects
         long start = System.nanoTime();
         List<String> evens = strings.parallelStream()
-                .filter(evenlengths)
+                .filter(ClosureVariables::isEvenLength)
                 .collect(Collectors.toList());
         long end = System.nanoTime();
         System.out.println(evens);
         System.out.printf("Time: %s%s%n", (end - start) / 1e9, "sec");
-
 
 
     }

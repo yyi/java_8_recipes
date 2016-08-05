@@ -12,8 +12,7 @@ public class UseDepartment {
 
         System.out.println(
                 d.getBoss()
-                        .map(Manager::getName)
-                        .orElse("Unknown"));
+                        .map(Manager::getName).orElse("Unknown"));
 
         Company co = new Company();
         co.setDepartment(d);
@@ -21,16 +20,14 @@ public class UseDepartment {
         System.out.println(
                 co.getDepartment()
                         .flatMap(Department::getBoss)
-                        .map(Manager::getName)
-                        .orElse("Unknown"));
+                        .map(Manager::getName).orElse("Unknown"));
 
         Optional<Company> company = Optional.of(co);
 
         System.out.println(company
                 .flatMap(Company::getDepartment)
                 .flatMap(Department::getBoss)
-                .map(Manager::getName)
-                .orElse("Unknown")
+                .map(Manager::getName).orElse("Unknown")
         );
 
         String name = "Mal Reynolds";
