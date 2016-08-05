@@ -6,6 +6,14 @@ public class UsePerson {
             Arrays.asList("Joffrey Baratheon", "Daenerys Targaryen", "Jon Snow",
                     "Arya Stark", "Tyrion Lannister", "Margaery Tyrell");
 
+    public List<Person> createPersonListJava7() {
+        List<Person> people = new ArrayList<>();
+        for (String name : names) {
+            people.add(new Person(name));
+        }
+        return people;
+    }
+
     public List<Person> createPersonList() {
         return names.stream()
                 .map(name -> new Person(name))

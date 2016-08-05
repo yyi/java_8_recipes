@@ -5,13 +5,19 @@ import java.util.stream.Stream;
 
 public class ImplementConsumer {
     public static void main(String[] args) {
-        Stream.of(3, 1, 4, 1, 5, 9)
-                .forEach(new Consumer<Integer>() {
+        IntStream.of(3, 1, 4, 1, 5, 9)
+                .forEach(new IntConsumer() {
                     @Override
-                    public void accept(Integer x) {
+                    public void accept(int x) {
                         System.out.println(x);
                     }
                 });
+
+        IntStream.of(3, 1, 4, 1, 5, 9)
+                .forEach(n -> System.out.println(n));
+
+        IntStream.of(3, 1, 4, 1, 5, 9)
+                .forEach(System.out::println);
 
         IntConsumer tryCatchBlock = x -> {
             try {

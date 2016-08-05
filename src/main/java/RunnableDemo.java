@@ -4,8 +4,6 @@ import java.util.stream.IntStream;
 
 public class RunnableDemo {
     public static void main(String[] args) {
-        Runnable r = () -> System.out.println("inside runnable using a lambda");
-        new Thread(r).start();
 
         // Use in Java 7 or earlier:
         new Thread(new Runnable() {
@@ -16,6 +14,9 @@ public class RunnableDemo {
         }).start();
 
         new Thread(() -> System.out.println("inside Thread as arg")).start();
+
+        Runnable r = () -> System.out.println("inside runnable using a lambda");
+        new Thread(r).start();
 
         ExecutorService service = Executors.newFixedThreadPool(4);
         IntStream.range(0, 10)

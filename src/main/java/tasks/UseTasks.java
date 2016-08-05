@@ -69,7 +69,8 @@ public class UseTasks {
         // Group tasks by duration
         Map<Integer, List<Task>> taskMap = tasks.stream()
                 .collect(groupingBy(Task::getDuration));
-        taskMap.forEach((key, val) -> System.out.printf("%s = %s%n", key, val));
+        taskMap.forEach((key, val) ->
+                System.out.printf("%s = %s%n", key, val));
 
 
         // Collect the tasks into a set
@@ -95,13 +96,12 @@ public class UseTasks {
 
         // Group task names by duration (downstream collector)
         Map<Integer, List<String>> nameMap = tasks.stream()
-                .filter(task -> task.getId() != null)
-                .collect(groupingBy(Task::getDuration, mapping(Task::getName, toList())));
+                .collect(groupingBy(Task::getDuration,
+                        mapping(Task::getName, toList())));
         nameMap.forEach((k, v) -> System.out.println(k + " : " + v));
 
         // Group task names by duration (downstream collector)
         Map<Integer, Long> numInEachGroup = tasks.stream()
-                .filter(task -> task.getId() != null)
                 .collect(groupingBy(Task::getDuration, counting()));
         nameMap.forEach((k, v) -> System.out.println(k + " : " + v));
 
