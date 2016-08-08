@@ -11,10 +11,10 @@ public class ProcessDictionary {
                 .map(String::toLowerCase)
                 .sorted(Comparator.comparingInt(String::length).reversed())
                 .limit(10)
-                .forEach((String w) ->
+                .forEach( w ->
                         System.out.printf("%s (%d)%n", w, w.length()));
 
-
+/*
         Optional<String> max = Files.lines(
                 Paths.get("/", "usr", "share", "dict", "web2"))
                 // .filter(s -> s.length() > 10)
@@ -24,6 +24,6 @@ public class ProcessDictionary {
 
         System.out.println(max.isPresent() ? max.get() : max.orElse("None found"));
         System.out.println(max.orElseGet(() -> "nothing"));
-        System.out.println(max.orElse("nothing"));
+        System.out.println(max.orElse("nothing")); */
     }
 }

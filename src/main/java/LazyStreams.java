@@ -16,7 +16,9 @@ public class LazyStreams {
         // Find first even double between 200 and 400 divisble by 3
         int firstEvenDivBy3 = IntStream.range(100, 200)
                 .filter(LazyStreams::divByThree)
+                //.filter(n -> n % 3 == 0)
                 .map(LazyStreams::multByTwo)
+                //.map(n -> n * 2)
                 .findFirst().orElse(0);
         System.out.printf("First even divisible by 3 is %d%n", firstEvenDivBy3);
     }
