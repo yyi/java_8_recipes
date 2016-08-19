@@ -1,5 +1,7 @@
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 public class Iteration {
@@ -24,5 +26,13 @@ public class Iteration {
 
         // Method reference
         integers.forEach(System.out::println);
+
+        Map<Long, String> map = new HashMap<>();
+        map.put(86L, "Don Adams (Maxwell Smart)");
+        map.put(99L, "Barbara Feldon");
+        map.put(13L, "David Ketchum");
+
+        map.forEach((num, agent) ->
+                System.out.printf("Agent %d, played by %s%n", num, agent));
     }
 }

@@ -20,6 +20,12 @@ public class UsePerson {
                 .collect(Collectors.toList());
     }
 
+    public List<Person> createPersonListUsingCtorRef() {
+        return names.stream()
+                .map(Person::new)
+                .collect(Collectors.toList());
+    }
+
     public Deque<Person> createPersonDeque() {
         return names.stream()
                 .map(Person::new)

@@ -1,4 +1,5 @@
 import org.junit.Test;
+import streams.StreamsDemo;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.number.IsCloseTo.closeTo;

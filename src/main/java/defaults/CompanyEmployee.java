@@ -11,8 +11,8 @@ public class CompanyEmployee implements Company, Employee {
     }
 
     @Override
-    public void doWork() {
-        System.out.println("Working...");
+    public void convertCaffeineToCodeForMoney() {
+        System.out.println("Coding...");
     }
 
     @Override

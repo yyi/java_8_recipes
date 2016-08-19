@@ -1,4 +1,7 @@
+package sorting;
+
 import org.junit.Test;
+import sorting.SortingDemo;
 
 import java.util.List;
 import java.util.stream.Collectors;
