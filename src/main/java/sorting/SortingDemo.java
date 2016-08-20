@@ -28,7 +28,7 @@ public class SortingDemo {
         return sampleStrings;
     }
 
-    // Java 7- using Comparator
+    // Java 7- using Comparator with anonymous inner class
     public List<String> lengthReverseSortWithComparator() {
         Collections.sort(sampleStrings, new Comparator<String>() {
             @Override
@@ -39,7 +39,7 @@ public class SortingDemo {
         return sampleStrings;
     }
 
-    // Using a lambda as a Comparator
+    // Using a lambda as a Comparator with a lambda
     public List<String> lengthSortWithLambda() {
         Collections.sort(sampleStrings,
                 (s1, s2) -> s1.length() - s2.length());

@@ -15,9 +15,9 @@ public class Summarizing {
         System.out.println(sum);
 
         DoubleSummaryStatistics stats = DoubleStream.generate(Math::random)
-                .limit(10)
-                .filter(n -> n <= 0.5)
-                // .peek(System.out::println)
+                .limit(10_000)
+//                .filter(n -> n <= 0.5)
+                //.peek(System.out::println)
                 .summaryStatistics();
         System.out.println(stats);
     }

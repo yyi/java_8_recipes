@@ -63,6 +63,12 @@ public class ClosureVariables {
                 .forEach(evenLengths::add);
         System.out.println(evenLengths);
 
+        // No side-effects
+        evenLengths = strings.stream()
+                .filter(s -> s.length() % 2 == 0)
+                .collect(Collectors.toList());
+        System.out.println(evenLengths);
+
 
         // No side-effects
         long start = System.nanoTime();

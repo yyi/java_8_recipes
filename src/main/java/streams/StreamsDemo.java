@@ -46,8 +46,7 @@ public class StreamsDemo {
     public Double sumRandoms1(int num) {
         return Stream.generate(Math::random)
                 .limit(num)
-                .reduce(Double::sum)
-                .orElse(0.0);
+                .reduce(Double::sum).orElse(0.0);
     }
 
     public Double sumRandoms2(int num) {

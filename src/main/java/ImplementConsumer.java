@@ -19,14 +19,14 @@ public class ImplementConsumer {
         IntStream.of(3, 1, 4, 1, 5, 9)
                 .forEach(System.out::println);
 
-        IntConsumer tryCatchBlock = x -> {
-            try {
-                throw new Exception("invalid");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        };
-        IntStream.of(3, 1, 4, 1, 5, 9)
-                .forEach(tryCatchBlock);
+//        IntConsumer tryCatchBlock = x -> {
+//            try {
+//                throw new Exception("invalid");
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        };
+//        IntStream.of(3, 1, 4, 1, 5, 9)
+//                .forEach(tryCatchBlock);
     }
 }
