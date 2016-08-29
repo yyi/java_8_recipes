@@ -1,7 +1,6 @@
 package sorting;
 
 import org.junit.Test;
-import sorting.SortingDemo;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -73,11 +72,6 @@ public class SortingDemoTest {
                     }
                     return curr;
                 });
-    }
-
-    @Test
-    public void testAlphaSortUsingSorted() throws Exception {
-        checkAlphabetical(demo.alphaSortUsingSorted());
     }
 
     @Test

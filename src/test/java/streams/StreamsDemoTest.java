@@ -1,3 +1,5 @@
+package streams;
+
 import org.junit.Test;
 import streams.StreamsDemo;
 
