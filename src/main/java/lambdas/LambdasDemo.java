@@ -1,3 +1,7 @@
+package lambdas;
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -5,7 +9,12 @@ import java.util.stream.Stream;
 
 public class LambdasDemo {
     public static void main(String[] args) {
+        List<String> strings = Arrays.asList("this", "is", "a",
+                "list", "of", "strings");
+
         // forEach takes a Consumer
+        strings.forEach(s -> System.out.println(s));
+
         Stream.of(3, 1, 4, 1, 5, 9)
                 .forEach(n -> System.out.println(n));
 
