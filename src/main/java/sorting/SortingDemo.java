@@ -5,9 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import static java.util.Comparator.comparing;
-import static java.util.Comparator.naturalOrder;
-import static java.util.Comparator.reverseOrder;
+import static java.util.Comparator.*;
 import static java.util.stream.Collectors.toList;
 
 public class SortingDemo {
@@ -79,14 +77,14 @@ public class SortingDemo {
     // Length sort with comparingInt
     public List<String> lengthSortUsingComparator() {
         return sampleStrings.stream()
-                .sorted(Comparator.comparingInt(String::length))
+                .sorted(comparingInt(String::length))
                 .collect(toList());
     }
 
     // Length sort, then alphabetical
     public List<String> lengthSortThenAlphaSort() {
         Collections.sort(sampleStrings,
-                Comparator.comparingInt(String::length)
+                comparingInt(String::length)
                         .thenComparing(Comparator.naturalOrder()));
         return sampleStrings;
     }
@@ -94,7 +92,7 @@ public class SortingDemo {
     // Sort by length then alpha using sorted
     public List<String> lengthSortThenAlphaSortUsingSorted() {
         return sampleStrings.stream()
-                .sorted(comparing(String::length)
+                .sorted(comparingInt(String::length)
                         .thenComparing(naturalOrder()))
                 .collect(toList());
     }

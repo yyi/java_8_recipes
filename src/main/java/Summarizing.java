@@ -14,7 +14,8 @@ public class Summarizing {
                 .sum();
         System.out.println(sum);
 
-        DoubleSummaryStatistics stats = DoubleStream.generate(Math::random)
+        DoubleSummaryStatistics stats =
+                DoubleStream.generate(Math::random)
                 .limit(10_000)
 //                .filter(n -> n <= 0.5)
                 //.peek(System.out::println)

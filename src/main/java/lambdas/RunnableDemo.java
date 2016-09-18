@@ -22,7 +22,7 @@ public class RunnableDemo {
 
         ExecutorService service = Executors.newFixedThreadPool(4);
         IntStream.range(0, 10)
-                .forEach(n -> {
+                .forEach((int n) -> {
                     service.submit(() ->
                             System.out.printf(String.format("executor service with %d%n", n)));
                 });

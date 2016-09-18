@@ -31,7 +31,7 @@ public class AddCollectionToMap {
         );
 
         bookMap = books.stream()
-                .collect(Collectors.toMap(Book::getId, UnaryOperator.identity()));
+                .collect(Collectors.toMap(Book::getId, Function.identity()));
 
         bookMap.forEach((k,v) ->
                 System.out.println(k + ": " + v)

@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -24,7 +25,8 @@ public class ProcessDictionary {
                 Paths.get("/", "usr", "share", "dict", "web2"))) {
 
             lines.filter(s -> s.length() > 20)
-                    .collect(Collectors.groupingBy(String::length, Collectors.counting()))
+                    .collect(Collectors.groupingBy(
+                            String::length, Collectors.counting()))
                     .forEach((len, num) -> System.out.println(len + ": " + num));
         }
 
@@ -32,14 +34,15 @@ public class ProcessDictionary {
                 Paths.get("/", "usr", "share", "dict", "web2"))) {
 
             Map<Integer, Long> map = lines.filter(s -> s.length() > 20)
-                    .collect(Collectors.groupingBy(String::length, Collectors.counting()));
+                    .collect(Collectors.groupingBy(
+                            String::length, Collectors.counting()));
 
             map.entrySet().stream()
                     .sorted(Map.Entry.comparingByKey(Comparator.reverseOrder()))
                     .forEach(e -> System.out.printf("Length %d: %d words%n", e.getKey(), e.getValue()));
         }
 
-/*
+
         Optional<String> max = Files.lines(
                 Paths.get("/", "usr", "share", "dict", "web2"))
                 // .filter(s -> s.length() > 10)
@@ -49,6 +52,7 @@ public class ProcessDictionary {
 
         System.out.println(max.isPresent() ? max.get() : max.orElse("None found"));
         System.out.println(max.orElseGet(() -> "nothing"));
-        System.out.println(max.orElse("nothing")); */
+        System.out.println(max.orElse("nothing"));
     }
+
 }

@@ -11,7 +11,7 @@ public class CompanyEmployee implements Company, Employee {
     }
 
     @Override
-    public void convertCaffeineToCodeForMoney() {
+    public void convertCaffeineToCode() {
         System.out.println("Coding...");
     }
 
