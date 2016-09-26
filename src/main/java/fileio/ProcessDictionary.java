@@ -22,7 +22,7 @@ public class ProcessDictionary {
         }
 
         try (Stream<String> lines = Files.lines(
-                Paths.get("/", "usr", "share", "dict", "web2"))) {
+                Paths.get("/", "usr", "share", "dict", "words"))) {
 
             lines.filter(s -> s.length() > 20)
                     .collect(Collectors.groupingBy(
@@ -31,7 +31,7 @@ public class ProcessDictionary {
         }
 
         try (Stream<String> lines = Files.lines(
-                Paths.get("/", "usr", "share", "dict", "web2"))) {
+                Paths.get("/", "usr", "share", "dict", "words"))) {
 
             Map<Integer, Long> map = lines.filter(s -> s.length() > 20)
                     .collect(Collectors.groupingBy(
@@ -44,7 +44,7 @@ public class ProcessDictionary {
 
 
         Optional<String> max = Files.lines(
-                Paths.get("/", "usr", "share", "dict", "web2"))
+                Paths.get("/", "usr", "share", "dict", "words"))
                 // .filter(s -> s.length() > 10)
                 .map(String::toLowerCase)
                 .sorted(Comparator.comparing(String::length).reversed())
