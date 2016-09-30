@@ -1,6 +1,8 @@
 package generics;
 
-public abstract class Employee implements Payable {
+public class Employee {
+    public static final Employee DEFAULT_EMPLOYEE = new Employee(0, "No Name");
+
     private int id;
     private String name;
 
@@ -29,9 +31,6 @@ public abstract class Employee implements Payable {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return name;
     }
 }
