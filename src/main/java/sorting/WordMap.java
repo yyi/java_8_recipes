@@ -1,5 +1,7 @@
 package sorting;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -7,27 +9,28 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 
 public class WordMap {
-    private Path projectRoot = Paths.get("src/main/resources");
+    private Path resourceDir = Paths.get("src/main/resources");
     private String fileName = "simple_file.txt";
 
     public Map<String, Long> createWordMap() {
         Map<String, Long> map = new HashMap<>();
         try {
             String text = new String(Files.readAllBytes(
-                    projectRoot.resolve(fileName)), "UTF-8");
+                    resourceDir.resolve(fileName)), "UTF-8");
             String[] words = text.split("\\W+");
             map = Arrays.stream(words)
                     .map(String::toLowerCase)
-                    .collect(groupingBy(Function.identity(), counting()));
+                    .collect(groupingBy(w -> w, counting()));
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
         return map;
     }

@@ -85,7 +85,7 @@ public class SortingDemo {
     public List<String> lengthSortThenAlphaSort() {
         Collections.sort(sampleStrings,
                 comparingInt(String::length)
-                        .thenComparing(Comparator.naturalOrder()));
+                        .thenComparing(naturalOrder()));
         return sampleStrings;
     }
 
