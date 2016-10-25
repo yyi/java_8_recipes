@@ -50,8 +50,7 @@ public class StreamsDemo {
                 .reduce((acc, n) -> {
                     System.out.printf("Acc=%s, n=%s%n", acc, n);
                     return acc + n;
-                })
-                .orElse(0.0);
+                }).orElse(0.0);
     }
 
     public Double sumRandoms3(int num) {

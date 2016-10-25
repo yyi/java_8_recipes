@@ -19,15 +19,6 @@ public class RunnableDemo {
 
         Runnable r = () -> System.out.println("inside runnable using a lambda");
         new Thread(r).start();
-
-        ExecutorService service = Executors.newFixedThreadPool(4);
-        IntStream.range(0, 10)
-                .forEach((int n) -> {
-                    service.submit(() ->
-                            System.out.printf(String.format("executor service with %d%n", n)));
-                });
-
-        service.shutdown();
     }
 
 }

@@ -1,6 +1,7 @@
 package streams;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -33,7 +34,6 @@ public class RandomStreams {
         List<Integer> listOfInts = r.ints()
                 .limit(LIMIT)
 //                .collect(Collectors.toList());
-                .collect(ArrayList<Integer>::new, ArrayList::add, ArrayList::addAll);
-
+                .collect(LinkedList::new, LinkedList::add, LinkedList::addAll);
     }
 }

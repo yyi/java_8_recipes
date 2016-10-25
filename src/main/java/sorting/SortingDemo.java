@@ -12,14 +12,6 @@ public class SortingDemo {
     private List<String> sampleStrings =
             Arrays.asList("this", "is", "a", "list", "of", "strings");
 
-    public void setSampleStrings(List<String> sampleStrings) {
-        this.sampleStrings = sampleStrings;
-    }
-
-    public List<String> getSampleStrings() {
-        return sampleStrings;
-    }
-
     // Default sort from Java 7-
     public List<String> alphaSort() {
         Collections.sort(sampleStrings);

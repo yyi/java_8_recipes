@@ -30,8 +30,6 @@ public class WordMap {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
         return map;
     }
 
