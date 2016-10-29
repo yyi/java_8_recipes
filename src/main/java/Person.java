@@ -10,13 +10,8 @@ public class Person {
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String toString() {
-        return String.format("Person(name:%s)", name);
+        return String.format("Person(%s)", name);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class RunnableDemo {
             }
         }).start();
 
-        new Thread(() -> System.out.println("inside Thread as arg")).start();
+        new Thread(() -> System.out.println("inside Thread constructor as arg")).start();
 
         Runnable r = () -> System.out.println("inside runnable using a lambda");
         new Thread(r).start();
