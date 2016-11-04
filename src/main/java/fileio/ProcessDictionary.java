@@ -9,6 +9,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
+
 public class ProcessDictionary {
     private Path dictionary = Paths.get("/usr/share/dict/words");
 
@@ -17,7 +20,8 @@ public class ProcessDictionary {
         try (Stream<String> lines = Files.lines(dictionary)) {
             lines.filter(s -> s.length() > 20)
                     .map(String::toLowerCase)
-                    .sorted(Comparator.comparingInt(String::length).reversed())
+                    .sorted(Comparator.comparingInt(String::length).reversed()
+                            .thenComparing(Comparator.reverseOrder()))
                     .limit(10)
                     .forEach(w ->
                             System.out.printf("%s (%d)%n", w, w.length()));
@@ -30,8 +34,8 @@ public class ProcessDictionary {
         System.out.println("\nNumber of words of each length:");
         try (Stream<String> lines = Files.lines(dictionary)) {
             lines.filter(s -> s.length() > 20)
-                    .collect(Collectors.groupingBy(
-                            String::length, Collectors.counting()))
+                    .collect(groupingBy(
+                            String::length, counting()))
                     .forEach((len, num) -> System.out.printf("%d: %d%n", len, num));
         } catch (IOException e) {
             e.printStackTrace();
@@ -42,8 +46,7 @@ public class ProcessDictionary {
         System.out.println("\nNumber of words of each length (desc order):");
         try (Stream<String> lines = Files.lines(dictionary)) {
             Map<Integer, Long> map = lines.filter(s -> s.length() > 20)
-                    .collect(Collectors.groupingBy(
-                            String::length, Collectors.counting()));
+                    .collect(groupingBy(String::length, counting()));
 
             map.entrySet().stream()
                     .sorted(Map.Entry.comparingByKey(Comparator.reverseOrder()))
