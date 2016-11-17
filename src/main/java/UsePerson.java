@@ -2,9 +2,13 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class UsePerson {
-    private List<String> names =
+    private static List<String> names =
             Arrays.asList("Joffrey Baratheon", "Daenerys Targaryen", "Jon Snow",
                     "Arya Stark", "Tyrion Lannister", "Margaery Tyrell");
+
+    public List<String> getNames() {
+        return names;
+    }
 
     public List<Person> createPersonListJava7() {
         List<Person> people = new ArrayList<>();
@@ -20,8 +24,15 @@ public class UsePerson {
                 .collect(Collectors.toList());
     }
 
-    public List<Person> createPersonListUsingCtorRef() {
+    public List<Person> createPersonList_CtorRef() {
         return names.stream()
+                .map(Person::new)
+                .collect(Collectors.toList());
+    }
+
+    public List<Person> createPersonList_2ArgCtrRef() {
+        return names.stream()
+                .map(name -> name.split(" "))
                 .map(Person::new)
                 .collect(Collectors.toList());
     }
@@ -44,12 +55,4 @@ public class UsePerson {
                 .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
     }
 
-    public static void main(String[] args) {
-        UsePerson up = new UsePerson();
-        System.out.println(up.createPersonList());
-        System.out.println(up.createPersonListUsingNew());
-        System.out.println(up.createPersonDeque());
-        Arrays.stream(up.createPersonArray())
-                .forEach(System.out::println);
-    }
 }
