@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Person {
     private Logger logger = Logger.getLogger(Person.class.getName());
