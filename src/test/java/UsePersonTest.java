@@ -12,25 +12,12 @@ import static org.junit.Assert.*;
 public class UsePersonTest {
     private UsePerson up = new UsePerson();
     private Person[] people;
-    private List<String> names;
 
     @Before
     public void setUp() {
-        names = up.getNames();
-        people = names.stream()
+        people = up.getNames().stream()
                 .map(Person::new)
                 .toArray(Person[]::new);
-    }
-
-    @Test
-    public void testPersonCtor() throws Exception {
-        new Person("Spock");
-        new Person("James", "Kirk");
-        new Person("Leonard McCoy".split(" "));
-        Stream.of("Montgomery Scott", "Pavel Chekov", "Hikaru Sulu")
-                .map(name -> name.split(" "))
-                .map(Person::new)
-                .forEach(System.out::println);
     }
 
     @Test

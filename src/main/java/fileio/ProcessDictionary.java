@@ -21,7 +21,8 @@ public class ProcessDictionary {
             lines.filter(s -> s.length() > 20)
                     .map(String::toLowerCase)
                     .sorted(Comparator.comparingInt(String::length).reversed()
-                            .thenComparing(Comparator.reverseOrder()))
+                            //.thenComparing(Comparator.reverseOrder()))
+                    )
                     .limit(10)
                     .forEach(w ->
                             System.out.printf("%s (%d)%n", w, w.length()));
