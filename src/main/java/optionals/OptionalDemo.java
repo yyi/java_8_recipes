@@ -1,26 +1,22 @@
 package optionals;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
+import java.util.function.Predicate;
 
 public class OptionalDemo {
-    public static void main(String[] args) {
-        Optional<String> firstEven = Stream.of("five", "even", "length", "string", "values")
-                .filter(s -> s.length() % 2 == 0)
+
+    private List<String> strings = new ArrayList<>();
+
+    public void setStrings(List<String> strings) {
+        this.strings = strings;
+    }
+
+    public Optional<String> findFirst(Predicate<String> predicate) {
+        return strings.stream()
+                .filter(predicate)
                 .findFirst();
-
-        System.out.println(firstEven);
-        firstEven.ifPresent(System.out::println);
-        System.out.println(firstEven.isPresent() ? firstEven.get() : "No even length strings");
-        System.out.println(firstEven.orElse("No even length strings"));
-
-        Optional<String> firstOdd = Stream.of("five", "even", "length", "string", "values")
-                .filter(s -> s.length() % 2 != 0)
-                .findFirst();
-
-        System.out.println(firstOdd);
-        firstOdd.ifPresent(System.out::println);
-        System.out.println(firstOdd.isPresent() ? firstOdd.get() : "No odd length strings");
-        System.out.println(firstOdd.orElse("No odd length strings"));
     }
 }

@@ -1,5 +1,6 @@
 package datetime;
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -11,10 +12,24 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-/**
- * Created by Ken Kousen on 7/14/16.
- */
 public class ConvertDate {
+    public LocalDate convertFromSqlDatetoLD(java.sql.Date sqlDate) {
+        return sqlDate.toLocalDate();
+    }
+
+    public java.sql.Date convertToSqlDateFromLD(LocalDate localDate) {
+        return java.sql.Date.valueOf(localDate);
+    }
+
+    public LocalDateTime convertFromTimestampToLDT(Timestamp timestamp) {
+        return timestamp.toLocalDateTime();
+    }
+
+    public Timestamp convertToTimestampFromLDT(LocalDateTime localDateTime) {
+        return Timestamp.valueOf(localDateTime);
+    }
+
+
     public LocalDate convertFromDateToLD(Date date) {
         return new java.sql.Date(date.getTime()).toLocalDate();
     }
