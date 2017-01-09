@@ -29,18 +29,13 @@ public class ConvertDate {
         return Timestamp.valueOf(localDateTime);
     }
 
-
-    public LocalDate convertFromDateToLD(Date date) {
+    public LocalDate convertFromUtilDateToLocalDate(Date date) {
         return new java.sql.Date(date.getTime()).toLocalDate();
     }
 
-    public LocalDateTime convertFromDateToLDUsingString(Date date) {
+    public LocalDateTime convertFromUtilDateToLDUsingString(Date date) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         return LocalDateTime.parse(df.format(date), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-    }
-
-    public LocalDateTime convertFromDateToLDT(Date date) {
-        return LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
     }
 
     public ZonedDateTime convertFromCalendar(Calendar cal) {
