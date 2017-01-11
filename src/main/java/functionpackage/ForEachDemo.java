@@ -1,4 +1,4 @@
-package juf_package;
+package functionpackage;
 
 import java.util.Arrays;
 import java.util.List;

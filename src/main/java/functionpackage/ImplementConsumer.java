@@ -1,4 +1,4 @@
-package juf_package;
+package functionpackage;
 
 import java.util.function.IntConsumer;
 import java.util.logging.Logger;

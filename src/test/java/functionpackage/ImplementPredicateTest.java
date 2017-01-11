@@ -1,10 +1,12 @@
-package juf_package;
+package functionpackage;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+import static functionpackage.ImplementPredicate.*;
 import static org.junit.Assert.assertEquals;
 
 public class ImplementPredicateTest {
@@ -41,6 +43,22 @@ public class ImplementPredicateTest {
                 demo.getNamesSatisfyingCondition(s -> s.length() == 5, names));
         assertEquals("Shepherd Book, Simon",
                 demo.getNamesSatisfyingCondition(s -> s.startsWith("S"), names));
+        assertEquals("Inara, Jayne, River, Simon",
+                demo.getNamesSatisfyingCondition(LENGTH_FIVE, names));
+        assertEquals("Shepherd Book, Simon",
+                demo.getNamesSatisfyingCondition(STARTS_WITH_S, names));
+    }
+
+    @Test
+    public void composedPredicate() throws Exception {
+        assertEquals("Simon",
+                demo.getNamesSatisfyingCondition(
+                        LENGTH_FIVE.and(STARTS_WITH_S), names));
+        assertEquals("Inara, Jayne, River, Shepherd Book, Simon",
+                demo.getNamesSatisfyingCondition(
+                        LENGTH_FIVE.or(STARTS_WITH_S), names));
+        assertEquals("Kaylee, Mal, Shepherd Book, Wash, Zoë",
+                demo.getNamesSatisfyingCondition(LENGTH_FIVE.negate(), names));
 
     }
 

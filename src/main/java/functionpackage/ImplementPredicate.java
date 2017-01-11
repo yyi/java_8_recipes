@@ -1,12 +1,12 @@
-package juf_package;
+package functionpackage;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class ImplementPredicate {
+    public static final Predicate<String> LENGTH_FIVE = s -> s.length() == 5;
+    public static final Predicate<String> STARTS_WITH_S = s -> s.startsWith("S");
 
     public String getNames(String... names) {
         return Arrays.stream(names)
