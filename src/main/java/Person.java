@@ -3,20 +3,16 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class Person {
-    private Logger logger = Logger.getLogger(Person.class.getName());
     private String name;
 
     public Person() {
-        logger.info(() -> "Default ctor");
     }
 
     public Person(String name) {
-        logger.info(() -> "One arg ctor with: " + name);
         this.name = name;
     }
 
     public Person(String... names) {
-        logger.info(() -> "Varagrs ctor with: " + names.length + " args, " + Arrays.asList(names));
         name = Arrays.stream(names)
                 .collect(Collectors.joining(" "));
     }

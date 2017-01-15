@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 @FunctionalInterface
 public interface PalindromeChecker {
     boolean isPalidrome(String s);
@@ -9,6 +11,7 @@ public interface PalindromeChecker {
                 sb.append(c);
             }
         }
+
         String forward = sb.toString().toLowerCase();
         String backward = sb.reverse().toString().toLowerCase();
         return forward.equals(backward);
