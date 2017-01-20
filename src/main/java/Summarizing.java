@@ -8,5 +8,11 @@ public class Summarizing {
                 .summaryStatistics();
 
         System.out.println(stats);
+
+        System.out.println("count: " + stats.getCount());
+        System.out.println("min  : " + stats.getMin());
+        System.out.println("max  : " + stats.getMax());
+        System.out.println("sum  : " + stats.getSum());
+        System.out.println("ave  : " + stats.getAverage());
     }
 }
