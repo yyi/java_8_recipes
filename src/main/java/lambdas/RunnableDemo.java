@@ -1,10 +1,7 @@
 package lambdas;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.stream.IntStream;
-
 public class RunnableDemo {
+    @SuppressWarnings("Convert2Lambda")
     public static void main(String[] args) {
 
         // Use in Java 7 or earlier:

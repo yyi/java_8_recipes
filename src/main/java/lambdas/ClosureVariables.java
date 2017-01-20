@@ -13,12 +13,13 @@ public class ClosureVariables {
     private static boolean isEvenLength(String s) {
         try {
             Thread.sleep(100);
-        } catch (InterruptedException e) {
+        } catch (InterruptedException ignored) {
         }
         System.out.printf("%s with %s%n", Thread.currentThread().getName(), s);
         return s.length() % 2 == 0;
     }
 
+    @SuppressWarnings({"Convert2streamapi", "UnusedAssignment", "unused"})
     public static void main(String[] args) {
 
         // Sum using loop (iterative and shared mutable state)
@@ -51,7 +52,7 @@ public class ClosureVariables {
         Predicate<String> evenlengths = (String s) -> {
             try {
                 Thread.sleep(100);
-            } catch (InterruptedException e) {
+            } catch (InterruptedException ignored) {
             }
             System.out.println(Thread.currentThread().getName());
             return s.length() % 2 == 0;

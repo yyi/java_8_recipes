@@ -8,6 +8,7 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public class LambdasDemo {
+    @SuppressWarnings("Convert2MethodRef")
     public static void main(String[] args) {
         List<String> strings = Arrays.asList("this", "is", "a",
                 "list", "of", "strings");
