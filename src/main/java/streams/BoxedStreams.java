@@ -5,9 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-/**
- * Created by Ken Kousen on 8/15/16.
- */
 public class BoxedStreams {
     public static void main(String[] args) {
         List<Integer> ints = IntStream.of(3, 1, 4, 1, 5, 9)
