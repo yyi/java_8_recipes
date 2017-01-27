@@ -7,6 +7,7 @@ import java.util.stream.IntStream;
 public class ImplementConsumer {
     private static Logger log = Logger.getLogger(ImplementConsumer.class.getName());
 
+    @SuppressWarnings({"Convert2Lambda", "Convert2MethodRef"})
     public static void main(String[] args) {
         log.warning(() -> "Logging a message at warn level");
         IntStream.of(3, 1, 4, 1, 5, 9)
@@ -23,14 +24,5 @@ public class ImplementConsumer {
         IntStream.of(3, 1, 4, 1, 5, 9)
                 .forEach(System.out::println);
 
-//        IntConsumer tryCatchBlock = x -> {
-//            try {
-//                throw new Exception("invalid");
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        };
-//        IntStream.of(3, 1, 4, 1, 5, 9)
-//                .forEach(tryCatchBlock);
     }
 }
