@@ -15,7 +15,7 @@ public class LazyStreams {
     }
 
     public static void main(String[] args) {
-        // Find first even double between 200 and 400 divisble by 3
+        // Find first even double between 200 and 400 divisible by 3
         int firstEvenDoubleDivBy3 = IntStream.range(100, 200)
                 .map(n -> n * 2)
                 .filter(n -> n % 3 == 0)
