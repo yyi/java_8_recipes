@@ -1,8 +1,5 @@
 package optionals;
 
-/**
- * Created by Ken Kousen on 10/10/16.
- */
 public class UseOptionalMap {
     public static void main(String[] args) {
         OptionalMap<String, Integer> uo = new OptionalMap<>();

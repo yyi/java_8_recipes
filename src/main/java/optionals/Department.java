@@ -6,10 +6,17 @@ public class Department {
     private Manager boss;
 
     public Optional<Manager> getBoss() {
-        return Optional.of(boss);
+        return Optional.ofNullable(boss);
     }
 
     public void setBoss(Manager boss) {
         this.boss = boss;
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "boss=" + boss +
+                '}';
     }
 }

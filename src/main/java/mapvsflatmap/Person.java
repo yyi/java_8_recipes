@@ -1,7 +1,9 @@
+package mapvsflatmap;
+
 import java.util.Arrays;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("unused")
 public class Person {
     private String name;
 
@@ -21,7 +23,7 @@ public class Person {
         return name;
     }
     public String toString() {
-        return String.format("Person(%s)", name);
+        return String.format("mapvsflatmap.Person(%s)", name);
     }
 
     @Override

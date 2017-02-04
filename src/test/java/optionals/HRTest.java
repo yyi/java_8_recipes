@@ -71,7 +71,7 @@ public class HRTest {
 
         assertFalse(hr.findEmployeeById(86).isPresent());
 
-        List<Employee> emps = hr.findEmployeesByIds1(ids);
+        List<Employee> emps = hr.findEmployeesByIds2(ids);
         assertEquals(sampleEmployees.size(), emps.size());
         sampleEmployees.forEach(e -> assertTrue(emps.contains(e)));
     }

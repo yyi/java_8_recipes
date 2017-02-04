@@ -60,9 +60,10 @@ public class HR {
     public List<Employee> findEmployeesByIds2(List<Integer> ids) {
         return ids.stream()
                 .map(this::findEmployeeById)
-                .flatMap(optional -> optional.isPresent() ?
-                        Stream.of(optional.get()) :
-                        Stream.empty())
+                .flatMap(optional -> optional.map(Stream::of).orElseGet(Stream::empty))
+//                .flatMap(optional -> optional.isPresent() ?
+//                        Stream.of(optional.get()) :
+//                        Stream.empty())
                 .collect(Collectors.toList());
     }
 }
