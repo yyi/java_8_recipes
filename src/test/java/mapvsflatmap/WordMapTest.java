@@ -1,5 +1,6 @@
-package sorting;
+package mapvsflatmap;
 
+import mapvsflatmap.WordMap;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -34,8 +35,8 @@ public class WordMapTest {
 
     @Test
     public void checkSampleFile() throws Exception {
-        Map<String, Long> map = this.wordMap.createWordMap();
-        assertEquals(15, map.size());
+        Map<String, Long> map = this.wordMap.createMap();
+        assertEquals(sample.size(), map.size());
         sample.forEach((word, count) -> {
             assertTrue(map.containsKey(word));
             assertEquals(count, map.get(word));
