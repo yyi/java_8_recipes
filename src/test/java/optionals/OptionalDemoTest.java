@@ -20,6 +20,30 @@ public class OptionalDemoTest {
     }
 
     @Test
+    public void testCreateOptional_fromNotNull() {
+        String s = "hello";
+        Optional<String> optional = OptionalDemo.createOptionalTheHardWay(s);
+        assertTrue(optional.isPresent());
+        assertEquals(s, optional.get());
+
+        optional = OptionalDemo.createOptionalTheEasyWay(s);
+        assertTrue(optional.isPresent());
+        assertEquals(s, optional.get());
+    }
+
+    @Test
+    public void testCreateOptional_fromNull() {
+        String s = null;
+        Optional<String> optional = OptionalDemo.createOptionalTheHardWay(s);
+        assertFalse(optional.isPresent());
+        assertEquals(Optional.empty(), optional);
+
+        optional = OptionalDemo.createOptionalTheEasyWay(s);
+        assertFalse(optional.isPresent());
+        assertEquals(Optional.empty(), optional);
+    }
+
+    @Test
     public void findFirstEven() throws Exception {
         Optional<String> first = demo.findFirst(s -> s.length() % 2 == 0);
         assertTrue(first.isPresent());

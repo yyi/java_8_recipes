@@ -1,4 +1,7 @@
+package mapvsflatmap;
+
 import mapvsflatmap.Person;
+import mapvsflatmap.UsePerson;
 import org.junit.Before;
 import org.junit.Test;
 

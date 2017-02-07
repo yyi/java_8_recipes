@@ -1,3 +1,5 @@
+package mapvsflatmap;
+
 import mapvsflatmap.Person;
 
 import java.util.*;
