@@ -1,13 +1,13 @@
 package defaults;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DefaultMethodsDemo {
     public static void main(String[] args) {
-        List<Integer> nums = Stream.of(-3, 1, 4, -5, 2, -6)
-                .collect(Collectors.toList());
+        List<Integer> nums = Arrays.asList(3, 1, 4, 1, 5, 9);
         System.out.println(nums);
 
         // removeIf is a default method in Collection

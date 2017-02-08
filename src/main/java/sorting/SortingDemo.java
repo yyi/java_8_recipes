@@ -8,6 +8,7 @@ import java.util.List;
 import static java.util.Comparator.*;
 import static java.util.stream.Collectors.toList;
 
+@SuppressWarnings({"Convert2Lambda", "ComparatorCombinators", "unused"})
 public class SortingDemo {
     private List<String> sampleStrings =
             Arrays.asList("this", "is", "a", "list", "of", "strings");
