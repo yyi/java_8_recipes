@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 public class CreatingStreams {
@@ -31,5 +33,16 @@ public class CreatingStreams {
         names = bradyBunch.stream()
                 .collect(Collectors.joining(","));
         System.out.println(names);
+
+        List<Integer> ints = IntStream.range(10, 15)
+                .boxed()
+                .collect(Collectors.toList());
+        System.out.println(ints);
+
+        List<Long> longs = LongStream.rangeClosed(10, 15)
+                .boxed()
+                .collect(Collectors.toList());
+        System.out.println(longs);
+
     }
 }
