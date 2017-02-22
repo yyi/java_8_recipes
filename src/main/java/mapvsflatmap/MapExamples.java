@@ -11,9 +11,10 @@ public class MapExamples {
                 .collect(Collectors.toList());
         System.out.println(sizes);
 
-        List<String> names = Stream.of(new Person("Steve"), new Person("Tony"),
-                new Person("Thor"), new Person("Natasha"),
-                new Person("Bruce"), new Person("Clint"))
+        List<String> names = Stream.of(new Person("Steve"),
+                new Person("Tony"), new Person("Thor"),
+                new Person("Natasha"), new Person("Bruce"),
+                new Person("Clint"))
                 .map(Person::getName)
                 .collect(Collectors.toList());
         System.out.println(names);

@@ -7,9 +7,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Created by Ken Kousen on 7/14/16.
- */
 public class AntarcticaTimeZones {
     public static void main(String[] args) {
         LocalDateTime now = LocalDateTime.now();

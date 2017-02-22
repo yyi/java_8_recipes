@@ -58,5 +58,6 @@ public class UseDepartment {
                 .flatMap(Department::getBoss)
                 .map(Manager::getName)
         );
+
     }
 }

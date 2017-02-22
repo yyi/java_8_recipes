@@ -38,6 +38,7 @@ public class WordMapTest {
         Map<String, Long> map = this.wordMap.createMap();
         assertEquals(sample.size(), map.size());
         sample.forEach((word, count) -> {
+            System.out.printf("%s: %d%n", word, count);
             assertTrue(map.containsKey(word));
             assertEquals(count, map.get(word));
         });

@@ -35,6 +35,7 @@ public class LambdasDemo {
         System.out.println();
         // Function of one type, returns one type
         Function<Integer, Integer> doubler = n -> n * 2;
+        Function.identity();
         Stream.of(3, 1, 4, 1, 5, 9)
                 .map(doubler)
                 .filter(mod3)

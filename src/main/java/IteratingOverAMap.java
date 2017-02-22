@@ -22,7 +22,7 @@ public class IteratingOverAMap {
 
         // Java 8 printing a map
         System.out.printf("len     words%n");
-        stringMap.forEach((len, stringList) ->
-                System.out.printf("%2d: %s%n", len, stringList));
+        stringMap.forEach((len, stringSet) ->
+                System.out.printf("%2d: %s%n", len, stringSet));
     }
 }
