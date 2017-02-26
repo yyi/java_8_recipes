@@ -1,11 +1,9 @@
 package streams;
 
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.IntStream;
-
-import static java.util.stream.Collectors.toList;
 
 public class ReduceDemo {
     public static void main(String[] args) {
@@ -31,12 +29,23 @@ public class ReduceDemo {
                 });
         System.out.println(doubleSum);
 
-        List<String> strings = Arrays.asList("this", "is", "a", "list", "of", "strings");
+        List<Book> books = Arrays.asList(
+                new Book(1, "Modern Java Recipes"),
+                new Book(2, "Making Java Groovy"),
+                new Book(3, "Gradle Recipes for Android"));
 
-        List<String> sorted = strings.stream()
-                .sorted(Comparator.comparingInt(String::length))
-                .collect(toList());
-        System.out.println(sorted);
+        // Note: this is the HARD way; see AddCollectionToMap for easier ways
+        HashMap<Integer, Book> bookMap = books.stream()
+                .reduce(new HashMap<Integer, Book>(),  // identity for putAll
+                        (map, book) -> {               // add a single book to map
+                            map.put(book.getId(), book);
+                            return map;
+                        },
+                        (map1, map2) -> {              // join multiple maps
+                            map1.putAll(map2);
+                            return map1;
+                        });
 
+        bookMap.forEach((k,v) -> System.out.println(k + ": " + v));
     }
 }
