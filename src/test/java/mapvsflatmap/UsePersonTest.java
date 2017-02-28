@@ -1,14 +1,12 @@
 package mapvsflatmap;
 
-import mapvsflatmap.Person;
-import mapvsflatmap.UsePerson;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class UsePersonTest {
     private UsePerson up = new UsePerson();
