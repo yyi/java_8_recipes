@@ -13,8 +13,32 @@ public class LambdasDemo {
         List<String> strings = Arrays.asList("this", "is", "a",
                 "list", "of", "strings");
 
+        // Java 7 syntax
+        System.out.println("Printing using anonymous inner class:");
+        strings.forEach(new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+                System.out.println(s);
+            }
+        });
+
         // forEach takes a Consumer
+        // verbose lambda syntax (block lambda)
+        strings.forEach((String s) -> {
+            System.out.println(s);
+        });
+
+        // simplified lambda syntax (expression lambda)
+        System.out.println("Printing using lambda expression:");
         strings.forEach(s -> System.out.println(s));
+
+        System.out.println("Printing using method reference:");
+        strings.forEach(System.out::println);
+
+        int totalLength = strings.stream()
+                .mapToInt(s -> s.length())
+                .sum();
+        System.out.printf("The total length of the strings is %d%n", totalLength);
 
         Stream.of(3, 1, 4, 1, 5, 9)
                 .forEach(n -> System.out.println(n));
@@ -31,11 +55,9 @@ public class LambdasDemo {
                 .filter(mod3)
                 .forEach(printer);
 
-
         System.out.println();
         // Function of one type, returns one type
         Function<Integer, Integer> doubler = n -> n * 2;
-        Function.identity();
         Stream.of(3, 1, 4, 1, 5, 9)
                 .map(doubler)
                 .filter(mod3)

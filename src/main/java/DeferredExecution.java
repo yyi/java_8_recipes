@@ -12,11 +12,8 @@ public class DeferredExecution {
     }
 
     public void logStuff(String message) {
-        String msg = createExpensiveMessage(message);
-        Supplier<String> supplier = () -> createExpensiveMessage(message);
-
-        logger.info(msg);
-        logger.info(supplier);
+        logger.info("The message is " + message);
+        logger.info(() -> "The message is " + message);
     }
 
     public static void main(String[] args) {

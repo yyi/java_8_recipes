@@ -30,4 +30,10 @@ public class CollectorsDemo {
         return Stream.of("Waffler", "Pencilhead", "Reverse Psychologist", "PMS Avenger")
                 .toArray(String[]::new);
     }
+
+    public List<String> evenLengthStrings(String... strings) {
+        return Stream.of(strings)
+                .filter(s -> s.length() % 2 == 0)
+                .collect(Collectors.toList());
+    }
 }

@@ -35,4 +35,13 @@ public class CollectorsDemoTest {
         String[] names = demo.createArray();
         assertEquals(4, names.length);
     }
+
+    @Test
+    public void evenLengthStrings() throws Exception {
+        List<String> evenLengthStrings =
+                demo.evenLengthStrings("here", "are", "a", "few", "strings");
+        evenLengthStrings.forEach(s -> {
+            assertTrue(s.length() % 2 == 0);
+        });
+    }
 }
