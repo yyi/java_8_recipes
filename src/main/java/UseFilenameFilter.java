@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.util.Arrays;
 
+@SuppressWarnings({"Convert2Lambda", "CodeBlock2Expr"})
 public class UseFilenameFilter {
     public static void main(String[] args) {
         File directory = new File("./src/main/java");
@@ -24,7 +25,7 @@ public class UseFilenameFilter {
         names = directory.list((File dir, String name) -> name.endsWith(".java"));
         System.out.println(Arrays.asList(names));
 
-        names = directory.list((dir, name) -> {
+        names = directory.list((File dir, String name) -> {
             return name.endsWith(".java");
         });
         System.out.println(Arrays.asList(names));

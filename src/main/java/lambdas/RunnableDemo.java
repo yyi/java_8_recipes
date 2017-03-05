@@ -1,7 +1,7 @@
 package lambdas;
 
 public class RunnableDemo {
-    @SuppressWarnings("Convert2Lambda")
+    //@SuppressWarnings("Convert2Lambda")
     public static void main(String[] args) {
 
         // Use in Java 7 or earlier:
@@ -12,9 +12,9 @@ public class RunnableDemo {
             }
         }).start();
 
-        new Thread(() -> System.out.println("inside Thread constructor as arg")).start();
+        new Thread(() -> System.out.println("inside runnable using a lambda")).start();
 
-        Runnable r = () -> System.out.println("inside runnable using a lambda");
+        Runnable r = () -> System.out.println("using a lambda as a variable");
         new Thread(r).start();
     }
 
