@@ -35,9 +35,10 @@ public class UsePerson {
     }
 
     public List<Person> createPersonList_2ArgCtrRef() {
-        return names.stream()
-                .map(name -> name.split(" "))
-                .map(Person::new)
+        return names.stream()                  // Stream<String>
+                .map(name -> name.split(" "))  // Stream<String[]>
+                .map(Person::new)              // Stream<Person> using String... ctor
+                .map(Person::new)              // Stream<Person> with copies
                 .collect(Collectors.toList());
     }
 

@@ -19,6 +19,10 @@ public class Person {
                 .collect(Collectors.joining(" "));
     }
 
+    public Person(Person p) {
+        this.name = p.name;
+    }
+
     public String getName() {
         return name;
     }
