@@ -14,12 +14,12 @@ public class CreatingStreams {
                 .collect(Collectors.joining(","));
         System.out.println(names);
 
-        String[] munsters = { "Herman", "Lily", "Eddie", "Marilyn", "Grandpa" };
+        String[] munsters = {"Herman", "Lily", "Eddie", "Marilyn", "Grandpa"};
         names = Arrays.stream(munsters)
                 .collect(Collectors.joining(","));
         System.out.println(names);
 
-        List<BigDecimal> nums = Stream.iterate(BigDecimal.ONE, n -> n.add(BigDecimal.ONE) )
+        List<BigDecimal> nums = Stream.iterate(BigDecimal.ONE, n -> n.add(BigDecimal.ONE))
                 .limit(10)
                 .collect(Collectors.toList());
         System.out.println(nums);
@@ -36,6 +36,7 @@ public class CreatingStreams {
 
         List<Integer> ints = IntStream.range(10, 15)
                 .boxed()
+//              .mapToObj(Integer::new)
                 .collect(Collectors.toList());
         System.out.println(ints);
 
