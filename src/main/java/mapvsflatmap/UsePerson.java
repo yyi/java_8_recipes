@@ -5,6 +5,7 @@ import mapvsflatmap.Person;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("Convert2MethodRef")
 public class UsePerson {
     private static List<String> names =
             Arrays.asList("Joffrey Baratheon", "Daenerys Targaryen", "Jon Snow",
@@ -45,7 +46,7 @@ public class UsePerson {
     public Deque<Person> createPersonDeque() {
         return names.stream()
                 .map(Person::new)
-                .collect(Collectors.toCollection(ArrayDeque::new));
+                .collect(Collectors.toCollection(LinkedList::new));
     }
 
     public Person[] createPersonArray() {

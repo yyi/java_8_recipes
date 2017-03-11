@@ -10,7 +10,8 @@ import java.util.stream.Collectors;
 public class AntarcticaTimeZones {
     public static void main(String[] args) {
         LocalDateTime now = LocalDateTime.now();
-        List<ZonedDateTime> antarticZones = ZoneId.getAvailableZoneIds().stream()
+        List<ZonedDateTime> antarticZones =
+                ZoneId.getAvailableZoneIds().stream()
                 .filter(id -> id.contains("Antarctica"))
                 .map(id -> now.atZone(ZoneId.of(id)))
                 .sorted(Comparator.comparingInt(zoneId ->
