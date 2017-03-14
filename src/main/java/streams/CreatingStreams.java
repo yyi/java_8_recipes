@@ -1,6 +1,7 @@
 package streams;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,6 +24,10 @@ public class CreatingStreams {
                 .limit(10)
                 .collect(Collectors.toList());
         System.out.println(nums);
+
+        Stream.iterate(LocalDate.now(), d -> d.plusMonths(1))
+                .limit(12)
+                .forEach(System.out::println);
 
         long count = Stream.generate(Math::random)
                 .limit(10)

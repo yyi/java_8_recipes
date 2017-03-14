@@ -7,18 +7,21 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.util.Comparator.comparingInt;
+
 public class AntarcticaTimeZones {
     public static void main(String[] args) {
         LocalDateTime now = LocalDateTime.now();
         List<ZonedDateTime> antarticZones =
                 ZoneId.getAvailableZoneIds().stream()
-                .filter(id -> id.contains("Antarctica"))
-                .map(id -> now.atZone(ZoneId.of(id)))
-                .sorted(Comparator.comparingInt(zoneId ->
-                        zoneId.getOffset().getTotalSeconds()))
-                .collect(Collectors.toList());
+                        .filter(id -> id.contains("Antarctica"))
+                        .map(ZoneId::of)  // Stream<ZoneId>
+                        .map(now::atZone) // Stream<ZonedDateTime>
+                        .sorted(comparingInt(zoneId -> zoneId.getOffset().getTotalSeconds()))
+                        .collect(Collectors.toList());
 
         antarticZones.forEach(zdt ->
-                System.out.printf("%s: %s%n", zdt.getOffset(), zdt.getZone()));
+                System.out.printf("%7s: %25s %7s%n", zdt.getOffset(), zdt.getZone(),
+                        zdt.getZone().getRules().isDaylightSavings(zdt.toInstant())));
     }
 }
