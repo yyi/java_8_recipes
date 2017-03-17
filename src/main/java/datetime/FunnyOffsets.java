@@ -26,7 +26,7 @@ public class FunnyOffsets {
 
         System.out.printf("%10s %20s %13s%n", "Offset", "ZoneId", "Time");
         ZoneId.getAvailableZoneIds().stream()
-                .map(ZoneId::of)
+                .map(ZoneId::of) // Stream<ZoneId>>
                 .filter(zoneId -> {
                     ZoneOffset offset = instant.atZone(zoneId).getOffset();
                     return offset.getTotalSeconds() % (60 * 60) != 0;

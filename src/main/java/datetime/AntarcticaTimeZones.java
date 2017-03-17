@@ -3,7 +3,6 @@ package datetime;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,7 +13,7 @@ public class AntarcticaTimeZones {
         LocalDateTime now = LocalDateTime.now();
         List<ZonedDateTime> antarticZones =
                 ZoneId.getAvailableZoneIds().stream()
-                        .filter(id -> id.contains("Antarctica"))
+                        .filter(regionId -> regionId.contains("Antarctica"))
                         .map(ZoneId::of)  // Stream<ZoneId>
                         .map(now::atZone) // Stream<ZonedDateTime>
                         .sorted(comparingInt(zoneId -> zoneId.getOffset().getTotalSeconds()))

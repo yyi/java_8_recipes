@@ -39,11 +39,11 @@ public class UsePerson {
         return names.stream()                  // Stream<String>
                 .map(name -> name.split(" "))  // Stream<String[]>
                 .map(Person::new)              // Stream<Person> using String... ctor
-                .map(Person::new)              // Stream<Person> with copies
+                .map(Person::new)              // Stream<Person> copies using the copy ctor
                 .collect(Collectors.toList());
     }
 
-    public Deque<Person> createPersonDeque() {
+    public List<Person> createPersonDeque() {
         return names.stream()
                 .map(Person::new)
                 .collect(Collectors.toCollection(LinkedList::new));

@@ -17,6 +17,7 @@ public class ReduceDemo {
                     return x + y;
                 }).orElse(0);
 
+
         // Off-by-one error: first value doesn't get doubled
         int doubleSum = IntStream.rangeClosed(1, 10)
                 .reduce((acc, n) -> acc + 2 * n).orElse(0);
@@ -28,6 +29,7 @@ public class ReduceDemo {
                     return acc + 2 * n;
                 });
         System.out.println(doubleSum);
+
 
         List<Book> books = Arrays.asList(
                 new Book(1, "Modern Java Recipes"),

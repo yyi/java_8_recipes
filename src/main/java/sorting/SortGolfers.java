@@ -52,9 +52,9 @@ public class SortGolfers {
 
     public static void main(String[] args) {
         SortGolfers sg = new SortGolfers();
-        sg.defaultSort();
-        sg.sortByScoreThenLast();
+//        sg.defaultSort();
+//        sg.sortByScoreThenLast();
         sg.sortByScoreThenLastThenFirst();
-        sg.partitionByScore();
+        // sg.partitionByScore();
     }
 }
