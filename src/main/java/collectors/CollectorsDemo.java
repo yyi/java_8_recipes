@@ -1,9 +1,7 @@
 package collectors;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -27,7 +25,7 @@ public class CollectorsDemo {
     }
 
     public String[] createArray() {
-        return Stream.of("Waffler", "Pencilhead", "Reverse Psychologist", "PMS Avenger")
+        return Stream.of("The Waffler", "Pencilhead", "Reverse Psychologist", "PMS Avenger")
                 .toArray(String[]::new);
     }
 
@@ -35,5 +33,19 @@ public class CollectorsDemo {
         return Stream.of(strings)
                 .filter(s -> s.length() % 2 == 0)
                 .collect(Collectors.toList());
+    }
+
+    public SortedSet<String> oddLengthStringSet(String... strings) {
+        Collector<String, ?, SortedSet<String>> intoSet =
+                Collector.of(TreeSet<String>::new,
+                        SortedSet::add,
+                        (left, right) -> {
+                            left.addAll(right);
+                            return left;
+                        },
+                        Collections::unmodifiableSortedSet);
+        return Stream.of(strings)
+                .filter(s -> s.length() % 2 != 0)
+                .collect(intoSet);
     }
 }
