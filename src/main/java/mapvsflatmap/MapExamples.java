@@ -1,6 +1,7 @@
 package mapvsflatmap;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -18,5 +19,13 @@ public class MapExamples {
                 .map(Person::getName)
                 .collect(Collectors.toList());
         System.out.println(names);
+
+        Map<Integer, List<String>> map =
+                Stream.of("This", "is", "a", "stream", "of", "strings")
+                .collect(Collectors.groupingBy(String::length));
+
+        map.forEach((k,v) -> {
+            System.out.println(k + ": " + v);
+        });
     }
 }

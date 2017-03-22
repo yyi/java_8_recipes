@@ -18,7 +18,7 @@ public class ExceptionHandling {
         try {
             return value / factor;
         } catch (ArithmeticException e) {
-            return 0;
+            return Integer.MAX_VALUE;
         }
     }
 
@@ -34,7 +34,7 @@ public class ExceptionHandling {
                     try {
                         return n / factor;
                     } catch (ArithmeticException e) {
-                        return 0;
+                        return Integer.MAX_VALUE;
                     }
                 })
                 .collect(Collectors.toList());
