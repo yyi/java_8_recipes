@@ -1,15 +1,16 @@
 package mapvsflatmap;
 
-import mapvsflatmap.Person;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("Convert2MethodRef")
 public class UsePerson {
     private static List<String> names =
-            Arrays.asList("Joffrey Baratheon", "Daenerys Targaryen", "Jon Snow",
-                    "Arya Stark", "Tyrion Lannister", "Margaery Tyrell");
+            Arrays.asList("Grace Hopper", "Frances Allen", "Ada Lovelace",
+                    "Barbara Liskov", "Adele Goldberg", "Karen Spärck Jones");
 
     public List<String> getNames() {
         return names;
@@ -43,7 +44,7 @@ public class UsePerson {
                 .collect(Collectors.toList());
     }
 
-    public List<Person> createPersonDeque() {
+    public List<Person> createPersonLinkedList() {
         return names.stream()
                 .map(Person::new)
                 .collect(Collectors.toCollection(LinkedList::new));

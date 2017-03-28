@@ -15,12 +15,17 @@ public class Person {
     }
 
     public Person(String... names) {
+        System.out.println("Varargs ctor, names=" + Arrays.asList(names));
         name = Arrays.stream(names)
                 .collect(Collectors.joining(" "));
     }
 
     public Person(Person p) {
         this.name = p.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getName() {
