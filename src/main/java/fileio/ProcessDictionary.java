@@ -31,12 +31,22 @@ public class ProcessDictionary {
         }
     }
 
+    public void printWordsOfEachLength() {
+        System.out.println("\nNumber of words of each length:");
+        try (Stream<String> lines = Files.lines(dictionary)) {
+            lines.filter(s -> s.length() > 20)
+                    .collect(groupingBy(String::length))
+                    .forEach((len, wordList) -> System.out.println(len + ": " + wordList));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void printHowManyWordsOfEachLength() {
         System.out.println("\nNumber of words of each length:");
         try (Stream<String> lines = Files.lines(dictionary)) {
             lines.filter(s -> s.length() > 20)
-                    .collect(groupingBy(
-                            String::length, counting()))
+                    .collect(groupingBy(String::length, counting()))
                     .forEach((len, num) -> System.out.printf("%d: %d%n", len, num));
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,7 +69,8 @@ public class ProcessDictionary {
 
     public static void main(String[] args) throws Exception {
         ProcessDictionary processDictionary = new ProcessDictionary();
-        processDictionary.printTenLongestWords();
+//        processDictionary.printTenLongestWords();
+//        processDictionary.printWordsOfEachLength();
         processDictionary.printHowManyWordsOfEachLength();
         processDictionary.printSortedMapOfWords();
     }
