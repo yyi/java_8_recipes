@@ -35,7 +35,7 @@ public class ProcessDictionary {
         System.out.println("\nNumber of words of each length:");
         try (Stream<String> lines = Files.lines(dictionary)) {
             lines.filter(s -> s.length() > 20)
-                    .collect(groupingBy(String::length))
+                    .collect(groupingBy(String::length)) // Map<Integer,List<String>>
                     .forEach((len, wordList) -> System.out.println(len + ": " + wordList));
         } catch (IOException e) {
             e.printStackTrace();
@@ -69,8 +69,8 @@ public class ProcessDictionary {
 
     public static void main(String[] args) throws Exception {
         ProcessDictionary processDictionary = new ProcessDictionary();
-//        processDictionary.printTenLongestWords();
-//        processDictionary.printWordsOfEachLength();
+        processDictionary.printTenLongestWords();
+        processDictionary.printWordsOfEachLength();
         processDictionary.printHowManyWordsOfEachLength();
         processDictionary.printSortedMapOfWords();
     }

@@ -22,5 +22,8 @@ public class UseFilenameFilter {
         // Use a lambda expression
         names = dir.list((directory, name) -> name.endsWith(".java"));
         System.out.println(Arrays.asList(names));
+
+        names = dir.list(new MyFilter());
+        System.out.println(Arrays.asList(names));
     }
 }

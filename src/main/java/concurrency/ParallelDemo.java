@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 public class ParallelDemo {
 
     public static int doubleIt(int n) {
-        System.out.println(Thread.currentThread().getName() + " with n=" + n);
+        // System.out.println(Thread.currentThread().getName() + " with n=" + n);
         try {
             Thread.sleep(100);
         } catch (InterruptedException ignore) {
@@ -15,6 +15,7 @@ public class ParallelDemo {
         return n * 2;
     }
 
+    @SuppressWarnings("Convert2streamapi")
     public static void main(String[] args) {
         List<Integer> ints = Arrays.asList(3, 1, 4, 1, 5, 9);
 

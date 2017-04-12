@@ -1,12 +1,12 @@
 package optionals;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public class OptionalDemo {
+    public static final Predicate<String> EVENS = s -> s.length() % 2 == 0;
+
 
     private List<String> strings = new ArrayList<>();
 
@@ -26,5 +26,13 @@ public class OptionalDemo {
 
     public static <T> Optional<T> createOptionalTheEasyWay(T value) {
         return Optional.ofNullable(value);
+    }
+
+    public static void main(String[] args) {
+        Optional<String> first = Stream.of("this is a list of strings".split(" "))
+                .filter(s -> s.length() > 10)
+                .findFirst();
+        System.out.println(first.orElseThrow(NoSuchElementException::new));
+
     }
 }

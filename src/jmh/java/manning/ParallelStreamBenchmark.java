@@ -11,10 +11,10 @@ import java.util.stream.Stream;
 // Recent results:
 //  Benchmark                                        Mode  Cnt   Score   Error  Units
 //  ParallelStreamBenchmark.iterativeSum             avgt   40   6.441 ± 0.019  ms/op
-//  ParallelStreamBenchmark.parallelLongStreamSum    avgt   40   6.571 ± 2.756  ms/op
+//  ParallelStreamBenchmark.sequentialStreamSum      avgt   40  90.468 ± 0.613  ms/op
 //  ParallelStreamBenchmark.parallelStreamSum        avgt   40  99.148 ± 3.065  ms/op
 //  ParallelStreamBenchmark.sequentialLongStreamSum  avgt   40   6.191 ± 0.248  ms/op
-//  ParallelStreamBenchmark.sequentialStreamSum      avgt   40  90.468 ± 0.613  ms/op
+//  ParallelStreamBenchmark.parallelLongStreamSum    avgt   40   6.571 ± 2.756  ms/op
 
 @SuppressWarnings("ALL")
 @BenchmarkMode(Mode.AverageTime)
@@ -23,6 +23,15 @@ import java.util.stream.Stream;
 @Fork(value = 2, jvmArgs = {"-Xms4G", "-Xmx4G"})
 public class ParallelStreamBenchmark {
     private static final long N = 10_000_000L;
+
+    @Benchmark
+    public long iterativeSum() {
+        long result = 0;
+        for (long i = 1L; i <= N; i++) {
+            result += i;
+        }
+        return result;
+    }
 
     @Benchmark
     public long sequentialStreamSum() {
@@ -37,15 +46,6 @@ public class ParallelStreamBenchmark {
                 .limit(N)
                 .parallel()
                 .reduce(0L, Long::sum);
-    }
-
-    @Benchmark
-    public long iterativeSum() {
-        long result = 0;
-        for (long i = 1L; i <= N; i++) {
-            result += i;
-        }
-        return result;
     }
 
     @Benchmark

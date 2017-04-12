@@ -3,11 +3,11 @@ package streams;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
-import java.util.stream.Stream;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.*;
 
 public class CreatingStreams {
     public static void main(String[] args) {
@@ -29,10 +29,10 @@ public class CreatingStreams {
                 .limit(12)
                 .forEach(System.out::println);
 
-        long count = Stream.generate(Math::random)
-                .limit(10)
-                .count();
-        System.out.println(count);
+        DoubleSummaryStatistics stats = DoubleStream.generate(Math::random)
+                .limit(1_000_000)
+                .summaryStatistics();
+        System.out.println(stats);
 
         List<String> bradyBunch = Arrays.asList("Greg", "Marcia", "Peter", "Jan", "Bobby", "Cindy");
         names = bradyBunch.stream()
@@ -49,6 +49,12 @@ public class CreatingStreams {
                 .boxed()
                 .collect(Collectors.toList());
         System.out.println(longs);
+
+        Map<String, Integer> map = Stream.of("this", "is", "a", "list", "of", "strings")
+                .collect(Collectors.toMap(s -> s, String::length));
+
+        map.forEach((word, length) -> System.out.printf(
+                "The length of %s is %d%n", word, length));
 
     }
 }

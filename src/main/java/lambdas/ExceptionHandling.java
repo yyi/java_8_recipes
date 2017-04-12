@@ -30,6 +30,7 @@ public class ExceptionHandling {
 
     public List<Integer> div(List<Integer> values, Integer factor) {
         return values.stream()
+                //.map(n -> n / factor)
                 .map(n -> {
                     try {
                         return n / factor;

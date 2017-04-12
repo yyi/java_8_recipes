@@ -10,10 +10,18 @@ public class ReduceProduct {
         System.out.println(product);
 
 
-        int sum = IntStream.rangeClosed(1, 10)
+        System.out.println("Reduce default version");
+        int sum1 = IntStream.rangeClosed(1, 10)
                 .reduce(0, (acc, n) -> {
                     System.out.println("acc=" + acc + ", n=" + n);
                     return acc + 2 * n;
+                });
+        System.out.println(sum1);
+
+        int sum = IntStream.rangeClosed(1, 10)
+                .reduce(0, (acc, n) -> {
+                    System.out.println("acc=" + acc + ", n=" + n);
+                    return acc + n;
                 });
         System.out.println(sum);
 

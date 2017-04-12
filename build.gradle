@@ -19,6 +19,8 @@ dependencies {
 
 jmh {
     duplicateClassesStrategy = 'warn'
+    // include = 'parallel.DoublingDemo.*'
+    include = 'parallel.CustomPoolBenchmark.*'
 }
 
 dependencies {

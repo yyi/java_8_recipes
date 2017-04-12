@@ -23,6 +23,5 @@ public class ImplementConsumer {
 
         IntStream.of(3, 1, 4, 1, 5, 9)
                 .forEach(System.out::println);
-
     }
 }
