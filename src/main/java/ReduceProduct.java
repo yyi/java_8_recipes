@@ -9,6 +9,9 @@ public class ReduceProduct {
                 .reduce((acc, n) -> acc * n);
         System.out.println(product);
 
+        long productValue = LongStream.rangeClosed(1, 5)
+                .reduce(1L, (acc, n) -> acc * n);
+
 
         System.out.println("Reduce default version");
         int sum1 = IntStream.rangeClosed(1, 10)

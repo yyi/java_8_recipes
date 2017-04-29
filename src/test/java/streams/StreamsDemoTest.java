@@ -28,9 +28,13 @@ public class StreamsDemoTest {
 
     @Test
     public void testSumFirstNBigDecimals() throws Exception {
-        assertThat(demo.sumFirstNBigDecimals(10), is(closeTo(
-                1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10, 0.01
-        )));
+        assertThat(demo.sumFirstNBigDecimals(10),
+                is(closeTo(1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10, 0.01)));
+    }
+
+    @Test
+    public void testSumFirstNBigDecimalsWithPrecision() throws Exception {
+        System.out.println(demo.sumFirstNBigDecimalsWithPrecision(10));
     }
 
     @Test
@@ -54,7 +58,7 @@ public class StreamsDemoTest {
 
     @Test
     public void testSumRandoms3() throws Exception {
-        int num = 1000;
+        int num = 10;
         double err = num * 0.05;
         assertThat(demo.sumRandoms3(num), is(closeTo(num / 2, err)));
     }

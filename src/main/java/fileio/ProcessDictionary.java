@@ -46,7 +46,7 @@ public class ProcessDictionary {
         System.out.println("\nNumber of words of each length:");
         try (Stream<String> lines = Files.lines(dictionary)) {
             lines.filter(s -> s.length() > 20)
-                    .collect(groupingBy(String::length, counting()))
+                    .collect(Collectors.groupingBy(String::length, Collectors.counting()))
                     .forEach((len, num) -> System.out.printf("%d: %d%n", len, num));
         } catch (IOException e) {
             e.printStackTrace();

@@ -98,10 +98,14 @@ public class ExceptionHandling {
 
     public List<String> encodeValuesWithWrapper(String... values) {
         return Arrays.stream(values)
-                .map(wrapper(s -> URLEncoder.encode(s, "UTF-8")))
+                //.map(wrapper(s -> URLEncoder.encode(s, "UTF-8")))
+                .map(wrapper(this::encodeToUTF8))
                 .collect(Collectors.toList());
     }
 
+    private String encodeToUTF8(String s) throws UnsupportedEncodingException {
+        return URLEncoder.encode(s, "UTF-8");
+    }
 
     public static void main(String[] args) {
         ExceptionHandling demo = new ExceptionHandling();

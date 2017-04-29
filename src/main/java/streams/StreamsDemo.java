@@ -8,7 +8,6 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static java.math.BigDecimal.ONE;
 import static java.util.stream.Collectors.joining;
 
 public class StreamsDemo {
@@ -33,10 +32,17 @@ public class StreamsDemo {
     }
 
     public double sumFirstNBigDecimals(int num) {
-        return Stream.iterate(ONE, val -> val.add(ONE))
+        return Stream.iterate(BigDecimal.ONE, val -> val.add(BigDecimal.ONE))
                 .limit(num)
                 .mapToDouble(BigDecimal::doubleValue)
                 .sum();
+    }
+
+    public BigDecimal sumFirstNBigDecimalsWithPrecision(int num) {
+        return Stream.iterate(BigDecimal.ONE, n -> n.add(BigDecimal.ONE))
+                .limit(num)
+                // .peek(x -> System.out.println("The value is " + x))
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public Double sumRandoms1(int num) {
@@ -56,8 +62,10 @@ public class StreamsDemo {
 
     public Double sumRandoms3(int num) {
         Random r = new Random();
-        return r.doubles()
-                .limit(num)
+        return r.doubles(num)
+                .peek(n -> System.out.println(Thread.currentThread().getName() + ": " + n))
+                .parallel()
+                //.limit(num)
                 .sum();
     }
 }

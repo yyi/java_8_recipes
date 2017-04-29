@@ -9,9 +9,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.LongStream;
 
 // Benchmark                                    Mode  Cnt  Score   Error  Units
-// CustomPoolBenchmark.addNumsBiggerCommonPool  avgt   40  2.742 ± 0.141  ms/op
-// CustomPoolBenchmark.addNumsCommonPool        avgt   40  1.728 ± 0.660  ms/op
-// CustomPoolBenchmark.addNumsCustomFJPool      avgt   40  4.987 ± 0.096  ms/op
+// CustomPoolBenchmark.addNumsBiggerCommonPool  avgt   40  3.068 ± 0.187  ms/op
+// CustomPoolBenchmark.addNumsCommonPool        avgt   40  3.047 ± 0.097  ms/op
+// CustomPoolBenchmark.addNumsCustomFJPool      avgt   40  3.332 ± 0.346  ms/op
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
