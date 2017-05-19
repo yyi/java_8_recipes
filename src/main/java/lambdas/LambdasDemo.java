@@ -3,12 +3,13 @@ package lambdas;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Function;
+import java.util.function.IntUnaryOperator;
 import java.util.function.Predicate;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class LambdasDemo {
-    @SuppressWarnings("Convert2MethodRef")
+    // @SuppressWarnings("Convert2MethodRef")
     public static void main(String[] args) {
         List<String> strings = Arrays.asList("this", "is", "a",
                 "list", "of", "strings");
@@ -36,12 +37,12 @@ public class LambdasDemo {
         strings.forEach(System.out::println);
 
         int totalLength = strings.stream()
-                .mapToInt(s -> s.length())
+                .mapToInt(String::length)
                 .sum();
         System.out.printf("The total length of the strings is %d%n", totalLength);
 
         Stream.of(3, 1, 4, 1, 5, 9)
-                .forEach(n -> System.out.println(n));
+                .forEach(System.out::println);
 
         // Define Consumer separately
         Consumer<Integer> printer = n -> System.out.println(n);
@@ -57,10 +58,13 @@ public class LambdasDemo {
 
         System.out.println();
         // Function of one type, returns one type
-        Function<Integer, Integer> doubler = n -> n * 2;
-        Stream.of(3, 1, 4, 1, 5, 9)
+        IntUnaryOperator doubler = n -> n * 2;
+        int sum = IntStream.range(1, 10)
+                .filter(n -> n % 3 == 0)
+                .peek(n -> System.out.println("After the filter: " + n))
                 .map(doubler)
-                .filter(mod3)
-                .forEach(printer);
+                .peek(n -> System.out.println("Before the doubler: " + n))
+                .sum();
+        System.out.println("The total is " + sum);
     }
 }

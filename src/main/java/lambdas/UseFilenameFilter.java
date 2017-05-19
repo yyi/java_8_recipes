@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.util.Arrays;
 
+@SuppressWarnings("ConstantConditions")
 public class UseFilenameFilter {
     public static void main(String[] args) {
         File dir = new File("src/main/java");

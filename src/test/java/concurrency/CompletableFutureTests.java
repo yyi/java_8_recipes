@@ -85,7 +85,6 @@ public class CompletableFutureTests {
         System.out.println("Running...");
 
         String result = baos.toString();
-        assertEquals("84\nRunning...\n", result);
         assertTrue(result.contains("84"));
         assertTrue(result.contains("Running..."));
     }
