@@ -1,9 +1,11 @@
 package streams;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ReduceDemo {
     public static void main(String[] args) {
@@ -17,6 +19,9 @@ public class ReduceDemo {
                     return x + y;
                 }).orElse(0);
 
+        sum = IntStream.rangeClosed(1, 10)
+                .reduce(Integer::sum).orElse(0);
+
 
         // Off-by-one error: first value doesn't get doubled
         int doubleSum = IntStream.rangeClosed(1, 10)
@@ -29,6 +34,18 @@ public class ReduceDemo {
                     return acc + 2 * n;
                 });
         System.out.println(doubleSum);
+
+        doubleSum = IntStream.rangeClosed(1, 10)
+                .reduce(0, Integer::sum);
+        System.out.println(doubleSum);
+
+        BigDecimal total = Stream.iterate(BigDecimal.ONE, n -> n.add(BigDecimal.ONE))
+                .limit(10)
+                .reduce(BigDecimal.ZERO, (acc, val) -> {
+                    System.out.println("acc=" + acc + ", val=" + val);
+                    return acc.add(val);
+                });
+        System.out.println("The total is " + total);
 
 
         List<Book> books = Arrays.asList(

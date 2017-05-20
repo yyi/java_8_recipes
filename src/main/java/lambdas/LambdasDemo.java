@@ -8,6 +8,7 @@ import java.util.function.Predicate;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+@SuppressWarnings("Convert2MethodRef")
 public class LambdasDemo {
     // @SuppressWarnings("Convert2MethodRef")
     public static void main(String[] args) {
@@ -63,7 +64,7 @@ public class LambdasDemo {
                 .filter(n -> n % 3 == 0)
                 .peek(n -> System.out.println("After the filter: " + n))
                 .map(doubler)
-                .peek(n -> System.out.println("Before the doubler: " + n))
+                .peek(n -> System.out.println("After the doubler: " + n))
                 .sum();
         System.out.println("The total is " + sum);
     }
