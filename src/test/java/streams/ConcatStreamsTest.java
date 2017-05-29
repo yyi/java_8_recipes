@@ -109,7 +109,7 @@ public class ConcatStreamsTest {
         Optional<String> optionalFirst = Stream.of(first, second, third, fourth)
                 .flatMap(Function.identity())
                 .findFirst();
-        System.out.println(optionalFirst);
+        assertNotNull(optionalFirst);
     }
 
     @Test
@@ -122,7 +122,7 @@ public class ConcatStreamsTest {
         Optional<String> optionalFirst = Stream.of(first, second, third, fourth)
                 .flatMap(Function.identity())
                 .findAny();
-        System.out.println(optionalFirst);
+        assertNotNull(optionalFirst);
     }
 
 }
