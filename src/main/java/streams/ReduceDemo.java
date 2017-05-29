@@ -1,9 +1,7 @@
 package streams;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -47,7 +45,36 @@ public class ReduceDemo {
                 });
         System.out.println("The total is " + total);
 
+        Integer max = Stream.of(3, 1, 4, 1, 5, 9)
+                .reduce(Integer.MIN_VALUE, Integer::max);
+        System.out.println("The max value is " + max);
 
+
+        /* String example */
+        // Inefficient, but works
+        String s = Stream.of("this", "is", "a", "list")
+                .reduce("", String::concat);
+        System.out.println(s);
+
+        // Better, but verbose
+        s = Stream.of("this", "is", "a", "list")
+                .collect(() -> new StringBuilder(),
+                        (sb, str) -> sb.append(str),
+                        (sb1, sb2) -> sb1.append(sb2))
+                .toString();
+
+        // Better and simpler
+        s = Stream.of("this", "is", "a", "list")
+                .collect(StringBuilder::new,
+                        StringBuilder::append,
+                        StringBuilder::append)
+                .toString();
+
+        // Best (or at least simplest)
+        s = Stream.of("this", "is", "a", "list")
+                .collect(Collectors.joining());
+
+        /*
         List<Book> books = Arrays.asList(
                 new Book(1, "Modern Java Recipes"),
                 new Book(2, "Making Java Groovy"),
@@ -66,5 +93,6 @@ public class ReduceDemo {
                         });
 
         bookMap.forEach((k,v) -> System.out.println(k + ": " + v));
+        */
     }
 }

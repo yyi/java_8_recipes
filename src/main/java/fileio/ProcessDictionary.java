@@ -1,5 +1,7 @@
 package fileio;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -67,11 +69,27 @@ public class ProcessDictionary {
         }
     }
 
+    public void printSortedMapOfWordsUsingBufferedReader() {
+        System.out.println("\nNumber of words of each length (desc order):");
+        try (Stream<String> lines =
+                     new BufferedReader(new FileReader("/usr/share/dict/words")).lines()) {
+            Map<Integer, Long> map = lines.filter(s -> s.length() > 20)
+                    .collect(groupingBy(String::length, counting()));
+
+            map.entrySet().stream()
+                    .sorted(Map.Entry.comparingByKey(Comparator.reverseOrder()))
+                    .forEach(e -> System.out.printf("Length %d: %d words%n", e.getKey(), e.getValue()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) throws Exception {
         ProcessDictionary processDictionary = new ProcessDictionary();
         processDictionary.printTenLongestWords();
         processDictionary.printWordsOfEachLength();
         processDictionary.printHowManyWordsOfEachLength();
         processDictionary.printSortedMapOfWords();
+        processDictionary.printSortedMapOfWordsUsingBufferedReader();
     }
 }
