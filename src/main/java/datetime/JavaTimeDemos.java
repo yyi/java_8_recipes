@@ -31,11 +31,11 @@ public class JavaTimeDemos {
         System.out.printf("LocalDate.now() %s%n", date1);
 
         LocalDate groundHogDay =
-                LocalDate.of(2016, Month.FEBRUARY, 2);
+                LocalDate.of(2018, Month.FEBRUARY, 2);
         System.out.printf("Groundhog Day, 2016: %s%n", groundHogDay);
 
         LocalDate firstDayofSpring =
-                LocalDate.of(2016, Month.MARCH, 20);
+                LocalDate.of(2018, Month.MARCH, 20);
         System.out.printf("First day of Spring, 2016: %s%n", firstDayofSpring);
 
         // Day of week available
