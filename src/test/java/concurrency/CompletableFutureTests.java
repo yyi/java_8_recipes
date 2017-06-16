@@ -4,13 +4,9 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.concurrent.CancellationException;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
+import java.util.concurrent.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 public class CompletableFutureTests {
 
@@ -85,7 +81,70 @@ public class CompletableFutureTests {
         System.out.println("Running...");
 
         String result = baos.toString();
+        System.out.println(result);
         assertTrue(result.contains("84"));
         assertTrue(result.contains("Running..."));
     }
+
+    @Test
+    public void supplyThenAcceptAsyncWithExecutor() throws Exception {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(baos));
+
+        ExecutorService service = Executors.newFixedThreadPool(4);
+        CompletableFuture.supplyAsync(() -> "42", service)
+                .thenApply(Integer::parseInt)
+                .thenApply(x -> 2 * x)
+                .thenAccept(System.out::println);
+        System.out.println("Running...");
+
+        String result = baos.toString();
+        System.out.println(result);
+        assertTrue(result.contains("84"));
+        assertTrue(result.contains("Running..."));
+
+    }
+
+    @Test
+    public void compose() throws Exception {
+        int x = 2;
+        int y = 3;
+        CompletableFuture<Integer> completableFuture =
+                CompletableFuture.supplyAsync(() -> x)
+                        .thenCompose(n -> CompletableFuture.supplyAsync(() -> n + y));
+
+        assertTrue(5 == completableFuture.get());
+    }
+
+    @Test
+    public void combine() throws Exception {
+        int x = 2;
+        int y = 3;
+        CompletableFuture<Integer> completableFuture =
+                CompletableFuture.supplyAsync(() -> x)
+                        .thenCombine(CompletableFuture.supplyAsync(() -> y),
+                                (n1, n2) -> n1 + n2);
+
+        assertTrue(5 == completableFuture.get());
+    }
+
+    private CompletableFuture<Integer> getIntegerCompletableFuture(String num) {
+        return CompletableFuture.supplyAsync(() -> Integer.parseInt(num))
+                .handle((val, exc) -> val != null ? val : 0);
+    }
+
+    @Test
+    public void handleWithException() throws Exception {
+        String num = "abc";
+        CompletableFuture<Integer> value = getIntegerCompletableFuture(num);
+        assertTrue(value.get() == 0);
+    }
+
+    @Test
+    public void handleWithoutException() throws Exception {
+        String num = "42";
+        CompletableFuture<Integer> value = getIntegerCompletableFuture(num);
+        assertTrue(value.get() == 42);
+    }
+
 }

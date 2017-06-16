@@ -3,6 +3,7 @@ package concurrency;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
@@ -10,7 +11,7 @@ import java.util.logging.Logger;
 public class CompletableFutureDemos {
     private Logger logger = Logger.getLogger(this.getClass().getName());
 
-    private Map<Integer, Product> cache = new HashMap<>();
+    private Map<Integer, Product> cache = new ConcurrentHashMap<>();
 
     public static void supplyThenAccept() {
         CompletableFuture.supplyAsync(CompletableFutureDemos::sleepThenReturnString)
@@ -50,13 +51,6 @@ public class CompletableFutureDemos {
                 logger.info("getLocal with id=" + id);
                 return CompletableFuture.completedFuture(product);
             } else {
-                // Asynchronous
-//                return CompletableFuture.supplyAsync(() -> {
-//                    Product p = getRemote(id);
-//                    cache.put(id, p);
-//                    return p;
-//                });
-
                 // Synchronous (simulating legacy system)
                 logger.info("getRemote with id=" + id);
                 CompletableFuture<Product> future = new CompletableFuture<>();
