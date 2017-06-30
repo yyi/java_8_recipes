@@ -6,6 +6,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class ReduceDemo {
+    @SuppressWarnings("Convert2MethodRef")
     public static void main(String[] args) {
         int sum = IntStream.rangeClosed(1, 10)
                 .reduce((x, y) -> x + y).orElse(0);
@@ -19,6 +20,9 @@ public class ReduceDemo {
 
         sum = IntStream.rangeClosed(1, 10)
                 .reduce(Integer::sum).orElse(0);
+
+        sum = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                .reduce(0, Integer::sum);
 
 
         // Off-by-one error: first value doesn't get doubled

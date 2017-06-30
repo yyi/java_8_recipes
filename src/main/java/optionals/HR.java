@@ -6,6 +6,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@SuppressWarnings({"UnusedReturnValue", "unused"})
 public class HR {
     private static final HR INSTANCE = new HR();
 

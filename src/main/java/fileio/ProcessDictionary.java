@@ -21,7 +21,6 @@ public class ProcessDictionary {
         System.out.println("\nTen Longest Words:");
         try (Stream<String> lines = Files.lines(dictionary)) {
             lines.filter(s -> s.length() > 20)
-                    .map(String::toLowerCase)
                     .sorted(Comparator.comparingInt(String::length).reversed()
                             //.thenComparing(Comparator.reverseOrder()))
                     )

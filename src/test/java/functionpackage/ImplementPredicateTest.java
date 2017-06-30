@@ -3,10 +3,10 @@ package functionpackage;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import static functionpackage.ImplementPredicate.*;
+import static functionpackage.ImplementPredicate.LENGTH_FIVE;
+import static functionpackage.ImplementPredicate.STARTS_WITH_S;
 import static org.junit.Assert.assertEquals;
 
 public class ImplementPredicateTest {
@@ -29,12 +29,12 @@ public class ImplementPredicateTest {
 
     @Test
     public void getNamesOfLength5() throws Exception {
-        assertEquals("Inara, Jayne, River, Simon", demo.getNamesOfLength5(names));
+        assertEquals("Inara, Jayne, River, Simon", demo.getNamesOfLength(5, names));
     }
 
     @Test
     public void getNamesStartingWithS() throws Exception {
-        assertEquals("Shepherd Book, Simon", demo.getNamesStartingWithS(names));
+        assertEquals("Shepherd Book, Simon", demo.getNamesStartingWith("S", names));
     }
 
     @Test

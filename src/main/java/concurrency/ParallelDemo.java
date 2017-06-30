@@ -1,5 +1,7 @@
 package concurrency;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -36,13 +38,14 @@ public class ParallelDemo {
                 .sum();
         System.out.println("Total = " + total);
 
-        long before = System.nanoTime();
+        Instant before = Instant.now();
         total = IntStream.of(3, 1, 4, 1, 5, 9)
                 .parallel()
                 .map(ParallelDemo::doubleIt)
                 .sum();
-        long after = System.nanoTime();
+        Instant after = Instant.now();
+        Duration duration = Duration.between(before, after);
         System.out.println("Total of doubles = " + total);
-        System.out.println("time = " + (after - before)/1e9 + " sec");
+        System.out.println("time = " + duration.toMillis() + " ms");
     }
 }

@@ -13,15 +13,15 @@ public class ImplementPredicate {
                 .collect(Collectors.joining(", "));
     }
 
-    public String getNamesOfLength5(String... names) {
+    public String getNamesOfLength(int length, String... names) {
         return Arrays.stream(names)
-                .filter(s -> s.length() == 5)
+                .filter(s -> s.length() == length)
                 .collect(Collectors.joining(", "));
     }
 
-    public String getNamesStartingWithS(String... names) {
+    public String getNamesStartingWith(String letter, String... names) {
         return Arrays.stream(names)
-                .filter(s -> s.startsWith("S"))
+                .filter(s -> s.startsWith(letter))
                 .collect(Collectors.joining(", "));
     }
 

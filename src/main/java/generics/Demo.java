@@ -30,10 +30,10 @@ public class Demo {
 
     public static List<Employee> createEmployees() {
         return Arrays.asList(
-                new Employee(1, "Peter Gibbons"),
-                new Employee(2, "Samir Nagheenanajar"),
-                new Employee(3, "Michael Bolton"),
-                new Employee(4, "Milton Waddams")
+                new Employee(1, "Seth Curry"),
+                new Employee(2, "Kevin Durant"),
+                new Employee(3, "Draymond Green"),
+                new Employee(4, "Klay Thompson")
         );
     }
 
@@ -78,6 +78,7 @@ public class Demo {
         // stuff.add(new Object());
         // stuff.add(3);
         int numElements = stuff.size();
+        System.out.println("numElements = " + numElements);
 
         printList(ints);
         printList(strings);
@@ -131,8 +132,8 @@ public class Demo {
                         return o1.toString().compareTo(o2.toString());
                     }
                 }).orElse(Employee.DEFAULT_EMPLOYEE);
-        System.out.println(maxId);
-        System.out.println(maxName);
+        System.out.println("Max id is " + maxId);
+        System.out.println("Max name is " + maxName);
 
         maxId = employees.stream()
                 .max(comparingInt(Employee::getId)).orElse(Employee.DEFAULT_EMPLOYEE);

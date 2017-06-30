@@ -71,5 +71,12 @@ public class JavaTimeDemos {
                 .withLocale(Locale.FRANCE);
         System.out.println(formatter.format(spring));
 
+        LocalDateTime dateTime = LocalDateTime.of(2017, Month.JULY, 4, 13, 20, 10);
+        ZonedDateTime nyc = dateTime.atZone(ZoneId.of("America/New_York"));
+        System.out.println(nyc);
+
+        ZonedDateTime london = nyc.withZoneSameInstant(ZoneId.of("Europe/London"));
+        System.out.println(london);
+
     }
 }

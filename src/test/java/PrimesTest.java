@@ -51,4 +51,11 @@ public class PrimesTest {
 
         assertTrue(expected.equals(computed));
     }
+
+    @Test
+    public void emptyStreamsDanger() throws Exception {
+        assertTrue(Stream.empty().allMatch(e -> false));
+        assertTrue(Stream.empty().noneMatch(e -> true));
+        assertFalse(Stream.empty().anyMatch(e -> true));
+    }
 }

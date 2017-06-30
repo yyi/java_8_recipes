@@ -13,6 +13,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class ConvertDate {
+    public LocalDate convertFromUtilDateUsingInstant(Date date) {
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
     public LocalDate convertFromSqlDatetoLD(java.sql.Date sqlDate) {
         return sqlDate.toLocalDate();
     }
