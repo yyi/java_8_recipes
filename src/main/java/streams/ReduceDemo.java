@@ -1,6 +1,9 @@
 package streams;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -78,7 +81,7 @@ public class ReduceDemo {
         s = Stream.of("this", "is", "a", "list")
                 .collect(Collectors.joining());
 
-        /*
+
         List<Book> books = Arrays.asList(
                 new Book(1, "Modern Java Recipes"),
                 new Book(2, "Making Java Groovy"),
@@ -97,6 +100,6 @@ public class ReduceDemo {
                         });
 
         bookMap.forEach((k,v) -> System.out.println(k + ": " + v));
-        */
+
     }
 }

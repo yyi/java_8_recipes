@@ -71,7 +71,7 @@ public class ClosureVariables {
 
         // No side-effects
         long start = System.nanoTime();
-        List<String> evens = strings.parallelStream()
+        List<String> evens = strings.stream()
                 .filter(ClosureVariables::isEvenLength)
                 .collect(Collectors.toList());
         long end = System.nanoTime();

@@ -41,7 +41,7 @@ public class CreatingStreams {
 
         List<Integer> ints = IntStream.range(10, 15)
                 .boxed()
-//              .mapToObj(Integer::new)
+//              .mapToObj(Integer::valueOf)
                 .collect(Collectors.toList());
         System.out.println(ints);
 

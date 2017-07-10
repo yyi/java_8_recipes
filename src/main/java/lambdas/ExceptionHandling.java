@@ -25,6 +25,7 @@ public class ExceptionHandling {
     public List<Integer> divUsingMethod(List<Integer> values, Integer factor) {
         return values.stream()
                 .map(n -> divide(n, factor))
+                //.map(this::divide)
                 .collect(Collectors.toList());
     }
 
