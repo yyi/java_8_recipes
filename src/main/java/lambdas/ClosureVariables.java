@@ -32,7 +32,7 @@ public class ClosureVariables {
         total = 0;
         nums.forEach(n -> {
                     // Can't modify "total"
-                    // total += n;
+                    //total += n;
                 }
         );
 
@@ -71,8 +71,9 @@ public class ClosureVariables {
 
         // No side-effects
         long start = System.nanoTime();
-        List<String> evens = strings.stream()
+        List<String> evens = strings.parallelStream()
                 .filter(ClosureVariables::isEvenLength)
+                //.filter(s -> s.length() % 2 == 0)
                 .collect(Collectors.toList());
         long end = System.nanoTime();
         System.out.println(evens);

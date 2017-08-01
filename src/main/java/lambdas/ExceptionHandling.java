@@ -2,12 +2,13 @@ package lambdas;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 @SuppressWarnings("unused")
 public class ExceptionHandling {
@@ -108,9 +109,33 @@ public class ExceptionHandling {
         return URLEncoder.encode(s, "UTF-8");
     }
 
+    public void closedStreamDemo() {
+        IntStream stream = IntStream.of(3, 1, 4, 1, 5, 9);
+
+        int sum = stream.sum();
+
+        OptionalInt max = stream.max();
+        System.out.println(max);
+    }
+
+    public void stats() {
+        DoubleSummaryStatistics stats = DoubleStream.generate(Math::random)
+                .limit(2_000_000)
+                .summaryStatistics();
+
+        System.out.println(stats);
+        System.out.println(stats.getCount());
+        System.out.println(stats.getSum());
+        System.out.println(stats.getAverage());
+        System.out.println(stats.getMax());
+        System.out.println(stats.getMin());
+    }
+
     public static void main(String[] args) {
         ExceptionHandling demo = new ExceptionHandling();
 
+        demo.stats();
+/*
         List<Integer> values = Arrays.asList(30, 10, 40, 10, 50, 90);
         List<Integer> scaled = demo.div(values, 10);
         System.out.println(scaled);
@@ -119,6 +144,6 @@ public class ExceptionHandling {
         System.out.println(scaled);
 
         scaled = demo.divUsingMethod(values, 0);
-        System.out.println(scaled);
+        System.out.println(scaled); */
     }
 }

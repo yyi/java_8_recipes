@@ -9,9 +9,9 @@ import java.util.stream.IntStream;
 public class ParallelDemo {
 
     public static int doubleIt(int n) {
-        // System.out.println(Thread.currentThread().getName() + " with n=" + n);
         try {
             Thread.sleep(100);
+            System.out.println(Thread.currentThread().getName() + " with n=" + n);
         } catch (InterruptedException ignore) {
         }
         return n * 2;

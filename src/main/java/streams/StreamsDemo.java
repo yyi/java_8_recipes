@@ -42,7 +42,8 @@ public class StreamsDemo {
         return Stream.iterate(BigDecimal.ONE, n -> n.add(BigDecimal.ONE))
                 .limit(num)
                 // .peek(x -> System.out.println("The value is " + x))
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
+                // .reduce(BigDecimal.ZERO, BigDecimal::add);
+                .reduce(BigDecimal.ZERO, (acc, n) -> acc.add(n));
     }
 
     public Double sumRandoms1(int num) {
