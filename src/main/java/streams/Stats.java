@@ -30,7 +30,8 @@ public class Stats {
 
     public List<Team> parseSalaries() {
         List<Team> teams = new ArrayList<>();
-        try (Stream<String> lines = Files.lines(Paths.get("src/main/resources/mlb_team_salaries_2017.txt"))) {
+        try (Stream<String> lines = Files.lines(
+                Paths.get("src/main/resources/mlb_team_salaries_2017.txt"))) {
             teams = lines.map(this::line2team)
                     .collect(Collectors.toList());
         } catch (IOException e) {

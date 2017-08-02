@@ -8,7 +8,7 @@ import java.util.List;
 import static java.util.Comparator.*;
 import static java.util.stream.Collectors.toList;
 
-@SuppressWarnings({"Convert2Lambda", "ComparatorCombinators", "unused"})
+@SuppressWarnings({"Convert2Lambda", "ComparatorCombinators", "unused", "Java8ListSort"})
 public class SortingDemo {
     private List<String> sampleStrings =
             Arrays.asList("this", "is", "a", "list", "of", "strings");
@@ -41,22 +41,6 @@ public class SortingDemo {
     public List<String> lengthSortWithLambda() {
         Collections.sort(sampleStrings,
                 (s1, s2) -> s1.length() - s2.length());
-        return sampleStrings;
-    }
-
-    // Alternative length sort using Integer.compare
-    public List<String> lengthSortUsingCompare() {
-        Collections.sort(sampleStrings,
-                (s1, s2) -> Integer.compare(s1.length(), s2.length()));
-        return sampleStrings;
-    }
-
-    // Verbose syntax for length sort
-    public List<String> lengthSortVerbose() {
-        Collections.sort(sampleStrings,
-                (String s1, String s2) -> {
-                    return Integer.compare(s1.length(), s2.length());
-                });
         return sampleStrings;
     }
 
