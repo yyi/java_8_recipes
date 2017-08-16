@@ -23,12 +23,12 @@ public class ReduceDemo {
 
         sum = IntStream.rangeClosed(1, 10)
                 .reduce(Integer::sum).orElse(0);
-
-        sum = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-                .reduce(0, Integer::sum);
-
-
-        // Off-by-one error: first value doesn't get doubled
+//
+//        sum = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+//                .reduce(0, Integer::sum);
+//
+//
+//        // Off-by-one error: first value doesn't get doubled
         int doubleSum = IntStream.rangeClosed(1, 10)
                 .reduce((acc, n) -> acc + 2 * n).orElse(0);
         System.out.println(doubleSum);
@@ -55,51 +55,51 @@ public class ReduceDemo {
         Integer max = Stream.of(3, 1, 4, 1, 5, 9)
                 .reduce(Integer.MIN_VALUE, Integer::max);
         System.out.println("The max value is " + max);
-
-
-        /* String example */
-        // Inefficient, but works
-        String s = Stream.of("this", "is", "a", "list")
-                .reduce("", String::concat);
-        System.out.println(s);
-
-        // Better, but verbose
-        s = Stream.of("this", "is", "a", "list")
-                .collect(() -> new StringBuilder(),
-                        (sb, str) -> sb.append(str),
-                        (sb1, sb2) -> sb1.append(sb2))
-                .toString();
-
-        // Better and simpler
-        s = Stream.of("this", "is", "a", "list")
-                .collect(StringBuilder::new,
-                        StringBuilder::append,
-                        StringBuilder::append)
-                .toString();
-
-        // Best (or at least simplest)
-        s = Stream.of("this", "is", "a", "list")
-                .collect(Collectors.joining());
-
-
-        List<Book> books = Arrays.asList(
-                new Book(1, "Modern Java Recipes"),
-                new Book(2, "Making Java Groovy"),
-                new Book(3, "Gradle Recipes for Android"));
-
-        // Note: this is the HARD way; see AddCollectionToMap for easier ways
-        HashMap<Integer, Book> bookMap = books.stream()
-                .reduce(new HashMap<Integer, Book>(),  // identity for putAll
-                        (map, book) -> {               // add a single book to map
-                            map.put(book.getId(), book);
-                            return map;
-                        },
-                        (map1, map2) -> {              // join multiple maps
-                            map1.putAll(map2);
-                            return map1;
-                        });
-
-        bookMap.forEach((k,v) -> System.out.println(k + ": " + v));
-
+//
+//
+//        /* String example */
+//        // Inefficient, but works
+//        String s = Stream.of("this", "is", "a", "list")
+//                .reduce("", String::concat);
+//        System.out.println(s);
+//
+//        // Better, but verbose
+//        s = Stream.of("this", "is", "a", "list")
+//                .collect(() -> new StringBuilder(),
+//                        (sb, str) -> sb.append(str),
+//                        (sb1, sb2) -> sb1.append(sb2))
+//                .toString();
+//
+//        // Better and simpler
+//        s = Stream.of("this", "is", "a", "list")
+//                .collect(StringBuilder::new,
+//                        StringBuilder::append,
+//                        StringBuilder::append)
+//                .toString();
+//
+//        // Best (or at least simplest)
+//        s = Stream.of("this", "is", "a", "list")
+//                .collect(Collectors.joining());
+//
+//
+//        List<Book> books = Arrays.asList(
+//                new Book(1, "Modern Java Recipes"),
+//                new Book(2, "Making Java Groovy"),
+//                new Book(3, "Gradle Recipes for Android"));
+//
+//        // Note: this is the HARD way; see AddCollectionToMap for easier ways
+//        HashMap<Integer, Book> bookMap = books.stream()
+//                .reduce(new HashMap<Integer, Book>(),  // identity for putAll
+//                        (map, book) -> {               // add a single book to map
+//                            map.put(book.getId(), book);
+//                            return map;
+//                        },
+//                        (map1, map2) -> {              // join multiple maps
+//                            map1.putAll(map2);
+//                            return map1;
+//                        });
+//
+//        bookMap.forEach((k,v) -> System.out.println(k + ": " + v));
+//
     }
 }

@@ -22,6 +22,7 @@ public class FunnyOffsets {
     public static void main(String[] args) {
         Instant instant = Instant.now();
         ZonedDateTime current = instant.atZone(ZoneId.systemDefault());
+        // equivalent to ZonedDateTime.now()
         System.out.printf("Current time is %s%n%n", current);
 
         System.out.printf("%10s %20s %13s%n", "Offset", "ZoneId", "Time");

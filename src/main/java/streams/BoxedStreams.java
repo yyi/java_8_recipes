@@ -9,7 +9,7 @@ public class BoxedStreams {
     public static void main(String[] args) {
 
         IntStream.rangeClosed(1, 10)
-                .mapToObj(Integer::new)
+                .mapToObj(Integer::valueOf)
                 .collect(Collectors.toList());
 
         List<Integer> ints = IntStream.of(3, 1, 4, 1, 5, 9)
