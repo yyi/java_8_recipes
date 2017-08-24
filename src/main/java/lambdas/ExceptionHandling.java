@@ -100,8 +100,8 @@ public class ExceptionHandling {
 
     public List<String> encodeValuesWithWrapper(String... values) {
         return Arrays.stream(values)
-                //.map(wrapper(s -> URLEncoder.encode(s, "UTF-8")))
-                .map(wrapper(this::encodeToUTF8))
+                .map(wrapper(s -> URLEncoder.encode(s, "UTF-8")))
+                //.map(wrapper(this::encodeToUTF8))
                 .collect(Collectors.toList());
     }
 
@@ -134,8 +134,8 @@ public class ExceptionHandling {
     public static void main(String[] args) {
         ExceptionHandling demo = new ExceptionHandling();
 
-        demo.stats();
-/*
+//        demo.stats();
+
         List<Integer> values = Arrays.asList(30, 10, 40, 10, 50, 90);
         List<Integer> scaled = demo.div(values, 10);
         System.out.println(scaled);
@@ -144,6 +144,6 @@ public class ExceptionHandling {
         System.out.println(scaled);
 
         scaled = demo.divUsingMethod(values, 0);
-        System.out.println(scaled); */
+        System.out.println(scaled);
     }
 }

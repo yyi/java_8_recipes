@@ -32,7 +32,7 @@ public class ClosureVariables {
         total = 0;
         nums.forEach(n -> {
                     // Can't modify "total"
-                    //total += n;
+                    // total += n;
                 }
         );
 
