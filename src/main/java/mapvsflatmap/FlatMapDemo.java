@@ -42,7 +42,7 @@ public class FlatMapDemo {
                 .map(Customer::getName)
                 .forEach(System.out::println);
 
-        // map 1-many customer to orders --> Stream<List<Order>)
+        // map 1-many customer to orders --> Stream<List<Order>>
         customers.stream()
                 .map(Customer::getOrders)
                 .forEach(System.out::println);

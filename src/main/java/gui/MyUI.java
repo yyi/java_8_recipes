@@ -6,15 +6,14 @@ import java.awt.*;
 public class MyUI extends JPanel {
     private JTextField source = new JTextField("Type text here");
     private JTextField destination = new JTextField("Result will be here");
-    private JButton go = new JButton("Go!");
 
     public MyUI() {
         super(new BorderLayout());
-        BorderLayout layout = (BorderLayout) getLayout();
         JPanel north = new JPanel();
         north.add(source);
         north.add(destination);
         JPanel south = new JPanel();
+        JButton go = new JButton("Go!");
         south.add(go);
 
         String greeting = "Hello, %s!";
