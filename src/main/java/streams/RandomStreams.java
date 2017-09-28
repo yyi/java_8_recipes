@@ -2,11 +2,12 @@ package streams;
 
 import java.math.BigDecimal;
 import java.security.SecureRandom;
-import java.util.*;
+import java.util.DoubleSummaryStatistics;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.partitioningBy;
 
 public class RandomStreams {
     public static final int LIMIT = 5;

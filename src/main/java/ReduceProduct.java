@@ -1,4 +1,3 @@
-import java.util.OptionalInt;
 import java.util.OptionalLong;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;

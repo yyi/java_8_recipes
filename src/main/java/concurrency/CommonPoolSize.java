@@ -3,7 +3,6 @@ package concurrency;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
-import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
 public class CommonPoolSize {

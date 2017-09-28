@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 @FunctionalInterface
 public interface PalindromeChecker {
     boolean isPalidrome(String s);

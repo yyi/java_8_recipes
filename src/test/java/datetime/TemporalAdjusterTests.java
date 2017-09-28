@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.temporal.TemporalAdjusters;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class TemporalAdjusterTests {
     @Test

@@ -7,9 +7,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class ObjectsDemoTest {
     private ObjectsDemo demo = new ObjectsDemo();

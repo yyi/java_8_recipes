@@ -2,14 +2,11 @@ package datetime;
 
 import org.junit.Test;
 
-import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
-import java.time.temporal.ChronoField;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 @SuppressWarnings("Duplicates")
 public class RegionIdsByOffsetTest {

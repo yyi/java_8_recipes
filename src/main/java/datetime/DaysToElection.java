@@ -4,9 +4,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
 
-import static java.time.temporal.ChronoUnit.DAYS;
-import static java.time.temporal.ChronoUnit.MONTHS;
-import static java.time.temporal.ChronoUnit.YEARS;
+import static java.time.temporal.ChronoUnit.*;
 
 public class DaysToElection {
     private static String pluralize(long num) {

@@ -7,7 +7,7 @@ import java.time.Month;
 import java.time.temporal.TemporalAdjuster;
 import java.util.stream.IntStream;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class PaydayAdjusterTest {
     @Test

@@ -2,12 +2,11 @@ package lambdas;
 
 import org.junit.Test;
 
-import java.nio.file.DirectoryStream;
 import java.util.function.IntPredicate;
-import java.util.function.Predicate;
 import java.util.stream.IntStream;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class CompositionDemoTest {
 

@@ -6,8 +6,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-import static org.junit.Assert.*;
-
 public class ConvertDateTest {
     private ConvertDate cd = new ConvertDate();
 
