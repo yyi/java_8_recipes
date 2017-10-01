@@ -34,6 +34,15 @@ public class ReduceDemo {
                 .reduce((acc, n) -> acc + 2 * n).orElse(0);
         System.out.println(doubleSum);
 
+        // off-by-one with print
+        doubleSum = IntStream.rangeClosed(1, 10)
+                .reduce((acc, n) -> {
+                    System.out.printf("acc = %d, n = %d%n", acc, n);
+                    return acc + 2 * n;
+                }).orElse(0);
+        System.out.println(doubleSum);
+
+        // correct
         doubleSum = IntStream.rangeClosed(1, 10)
                 .reduce(0, (acc, n) -> {
                     System.out.printf("Acc=%d, n=%d%n", acc, n);

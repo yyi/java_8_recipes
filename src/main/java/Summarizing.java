@@ -15,14 +15,14 @@ public class Summarizing {
         System.out.println("sum  : " + stats.getSum());
         System.out.println("ave  : " + stats.getAverage());
 
-        double sum = DoubleStream.generate(Math::random)
+        DoubleStream.generate(Math::random)
 //                .map(n -> {
 //                    System.out.println(n);
 //                    return n;
 //                })
-                .peek(System.out::println)
+                //.peek(System.out::println)
                 .limit(10)
-                .sum();
-        System.out.println(sum);
+                .forEach(System.out::println);
     }
 }
+

@@ -15,7 +15,9 @@ public class StreamsDemo {
 
     public String joinStream() {
         return strings.stream()
-                .collect(Collectors.joining(" "));
+                //.collect(Collectors.joining(" "));
+                .collect(StringBuilder::new, StringBuilder::append, StringBuilder::append)
+                .toString();
     }
 
     public String joinUpperCase() {

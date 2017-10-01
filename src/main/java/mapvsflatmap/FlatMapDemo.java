@@ -2,6 +2,7 @@ package mapvsflatmap;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class FlatMapDemo {
     public static void main(String[] args) {
@@ -51,8 +52,12 @@ public class FlatMapDemo {
                 .forEach(System.out::println);
 
         // flatMap 1-many customer to orders.stream() --> Stream<Order>
+        // Note: extra detail included just for illustration;
+        //      stream() on an empty collection already returns an empty stream
         customers.stream()
-                .flatMap(customer -> customer.getOrders().stream())
+                .flatMap(customer -> customer.getOrders().size() == 0 ?
+                        Stream.empty() :
+                        customer.getOrders().stream())
                 .forEach(System.out::println);
     }
 }
