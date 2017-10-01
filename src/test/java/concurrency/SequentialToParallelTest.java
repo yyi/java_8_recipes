@@ -12,41 +12,41 @@ import static org.junit.Assert.assertTrue;
 
 public class SequentialToParallelTest {
     @Test
-    public void sequentialStreamOf() throws Exception {
+    public void sequentialStreamOf() {
         assertFalse(Stream.of(3, 1, 4, 1, 5, 9).isParallel());
     }
 
     @Test
-    public void sequentialIterateStream() throws Exception {
+    public void sequentialIterateStream() {
         assertFalse(Stream.iterate(1, n -> n + 1).isParallel());
     }
 
     @Test
-    public void sequentialGenerateStream() throws Exception {
+    public void sequentialGenerateStream() {
         assertFalse(Stream.generate(Math::random).isParallel());
     }
 
     @Test
-    public void sequentialCollectionStream() throws Exception {
+    public void sequentialCollectionStream() {
         List<Integer> numbers = Arrays.asList(3, 1, 4, 1, 5, 9);
         assertFalse(numbers.stream().isParallel());
     }
 
     @Test
-    public void parallelMethodOnStream() throws Exception {
+    public void parallelMethodOnStream() {
         assertTrue(Stream.of(3, 1, 4, 1, 5, 9)
                 .parallel()
                 .isParallel());
     }
 
     @Test
-    public void parallelStreamMethodOnCollection() throws Exception {
+    public void parallelStreamMethodOnCollection() {
         List<Integer> numbers = Arrays.asList(3, 1, 4, 1, 5, 9);
         assertTrue(numbers.parallelStream().isParallel());
     }
 
     @Test
-    public void parallelStreamThenSequential() throws Exception {
+    public void parallelStreamThenSequential() {
         List<Integer> numbers = Arrays.asList(3, 1, 4, 1, 5, 9);
         assertFalse(numbers.parallelStream()
                 .sequential()
@@ -54,7 +54,7 @@ public class SequentialToParallelTest {
     }
 
     @Test
-    public void switchingParallelToSequentialInSameStream() throws Exception {
+    public void switchingParallelToSequentialInSameStream() {
         List<Integer> numbers = Arrays.asList(3, 1, 4, 1, 5, 9);
         List<Integer> nums = numbers.parallelStream()
                 .map(n -> n * 2)

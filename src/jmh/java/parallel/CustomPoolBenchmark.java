@@ -8,10 +8,11 @@ import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.LongStream;
 
-// Benchmark                                    Mode  Cnt  Score   Error  Units
-// CustomPoolBenchmark.addNumsBiggerCommonPool  avgt   40  3.068 ± 0.187  ms/op
-// CustomPoolBenchmark.addNumsCommonPool        avgt   40  3.047 ± 0.097  ms/op
-// CustomPoolBenchmark.addNumsCustomFJPool      avgt   40  3.332 ± 0.346  ms/op
+//Benchmark                                    Mode  Cnt  Score   Error  Units
+// CustomPoolBenchmark.addNumsBiggerCommonPool  avgt   40  2.787 ± 0.095  ms/op
+// CustomPoolBenchmark.addNumsCommonPool        avgt   40  1.665 ± 0.647  ms/op
+// CustomPoolBenchmark.addNumsCustomFJPool      avgt   40  4.663 ± 0.140  ms/op
+
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
