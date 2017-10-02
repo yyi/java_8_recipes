@@ -12,22 +12,6 @@ public class CompletableFutureDemos {
 
     private Map<Integer, Product> cache = new ConcurrentHashMap<>();
 
-    public static void supplyThenAccept() {
-        CompletableFuture.supplyAsync(CompletableFutureDemos::sleepThenReturnString)
-                .thenApply(Integer::parseInt)
-                .thenApply(x -> 2 * x)
-                .thenAccept(System.out::println);
-        System.out.println("Running...");
-    }
-
-    private static String sleepThenReturnString() {
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException ignored) {
-        }
-        return "42";
-    }
-
     private Product getLocal(int id) {
         return cache.get(id);
     }
@@ -88,11 +72,4 @@ public class CompletableFutureDemos {
             return future;
         }
     }
-
-    public static void main(String[] args) {
-        CompletableFutureDemos.supplyThenAccept();
-
-        ForkJoinPool.commonPool().awaitQuiescence(1, TimeUnit.SECONDS);
-    }
-
 }

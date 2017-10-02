@@ -11,15 +11,14 @@ import static org.junit.Assert.*;
 public class CompletableFutureTests {
 
     @Test(expected = CancellationException.class)
-    public void joinAfterCancel() throws Exception {
+    public void joinAfterCancel() {
         CompletableFuture<String> future = new CompletableFuture<>();
         future.cancel(false);
-        future.complete("I'm done");
         System.out.println(future.join());
     }
 
     @Test
-    public void completeWithGet() throws Exception {
+    public void completeWithGet() {
         CompletableFuture<String> future = new CompletableFuture<>();
         boolean finished = future.complete("I'm done");
         assertTrue(finished);
@@ -31,7 +30,7 @@ public class CompletableFutureTests {
     }
 
     @Test
-    public void completeWithJoin() throws Exception {
+    public void completeWithJoin() {
         CompletableFuture<String> future = new CompletableFuture<>();
         boolean finished = future.complete("I'm done");
         assertTrue(finished);
@@ -44,7 +43,7 @@ public class CompletableFutureTests {
     }
 
     @Test
-    public void completeExceptionallyWithCause() throws Exception {
+    public void completeExceptionallyWithCause() {
         try {
             parseNumber("abc").get();
             fail("Should not get here");
@@ -70,7 +69,7 @@ public class CompletableFutureTests {
     }
 
     @Test
-    public void supplyThenAccept() throws Exception {
+    public void supplyThenAccept() {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(baos));
 
@@ -87,7 +86,7 @@ public class CompletableFutureTests {
     }
 
     @Test
-    public void supplyThenAcceptAsyncWithExecutor() throws Exception {
+    public void supplyThenAcceptAsyncWithExecutor() {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(baos));
 
