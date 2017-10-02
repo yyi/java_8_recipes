@@ -7,7 +7,7 @@ import java.util.stream.LongStream;
 
 public class CommonPoolSize {
     public static void main(String[] args) {
-        // System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism", "2000");
+        // System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism", "16");
         long total = LongStream.rangeClosed(1, 3_000_000)
                 .parallel()
                 .sum();

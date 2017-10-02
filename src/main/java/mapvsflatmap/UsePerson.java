@@ -25,14 +25,14 @@ public class UsePerson {
     }
 
     public List<Person> createPersonList() {
-        return names.stream()
-                .map(name -> new Person(name))
-                .collect(Collectors.toList());
+        return names.stream()                     // Stream<String>
+                .map(name -> new Person(name))    // Stream<Person>
+                .collect(Collectors.toList());    // List<Person>
     }
 
     public List<Person> createPersonList_CtorRef() {
         return names.stream()
-                .map(Person::new)
+                .map(Person::new)  // invoke the one-arg Person ctor that takes String
                 .collect(Collectors.toList());
     }
 
