@@ -36,7 +36,7 @@ public class ProcessDictionary {
         System.out.println("\nList of words of each length:");
         try (Stream<String> lines = Files.lines(dictionary)) {
             lines.filter(s -> s.length() > 20)
-                    .collect(groupingBy(String::length)) // Map<Integer,List<String>>
+                    .collect(Collectors.groupingBy(String::length)) // Map<Integer,List<String>>
                     .forEach((len, wordList) -> System.out.println(len + ": " + wordList));
         } catch (IOException e) {
             e.printStackTrace();

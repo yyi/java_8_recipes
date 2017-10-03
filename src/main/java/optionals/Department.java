@@ -3,6 +3,7 @@ package optionals;
 import java.util.Optional;
 
 public class Department {
+    private String name;
     private Manager boss;
 
     public Optional<Manager> getBoss() {
@@ -11,6 +12,14 @@ public class Department {
 
     public void setBoss(Manager boss) {
         this.boss = boss;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

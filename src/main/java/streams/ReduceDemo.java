@@ -21,6 +21,7 @@ public class ReduceDemo {
                     System.out.printf("x=%d, y=%d%n", x, y);
                     return x + y;
                 }).orElse(0);
+        System.out.println(sum);
 
         sum = IntStream.rangeClosed(1, 10)
                 .reduce(Integer::sum).orElse(0);

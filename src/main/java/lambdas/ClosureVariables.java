@@ -60,18 +60,19 @@ public class ClosureVariables {
         strings.stream()
                 .filter(s -> s.length() % 2 == 0)
                 .forEach(evenLengths::add);
-        System.out.println(evenLengths);
+        System.out.println("Using add: " + evenLengths);
 
         // No side-effects
+        System.out.println("Before: " + strings);
         evenLengths = strings.stream()
                 .filter(s -> s.length() % 2 == 0)
                 .collect(Collectors.toList());
-        System.out.println(evenLengths);
+        System.out.println("After: " + evenLengths);
 
 
         // No side-effects
         long start = System.nanoTime();
-        List<String> evens = strings.parallelStream()
+        List<String> evens = strings.stream()
                 .filter(ClosureVariables::isEvenLength)
                 //.filter(s -> s.length() % 2 == 0)
                 .collect(Collectors.toList());

@@ -39,7 +39,7 @@ public class ParallelDemo {
         System.out.println("Total = " + total);
 
         Instant before = Instant.now();
-        total = IntStream.of(3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 7, 9, 7)
+        total = IntStream.of(3, 1, 4, 1, 5, 9)
                 .parallel()
                 .map(ParallelDemo::doubleIt)
                 .sum();
