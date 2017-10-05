@@ -12,7 +12,7 @@ public class PrimesTest {
     private Primes calculator = new Primes();
 
     @Test // Iterative
-    public void testIsPrime() throws Exception {
+    public void testIsPrime() {
         IntStream.of(2, 3, 5, 7, 11, 13, 17, 19)
                 .forEach(n -> assertTrue(calculator.isPrime(n)));
 
@@ -20,13 +20,13 @@ public class PrimesTest {
     }
 
     @Test // Functional :)
-    public void testIsPrimeWithStreams() throws Exception {
+    public void testIsPrimeWithStreams() {
         assertTrue(Stream.of(2, 3, 5, 7, 11, 13, 17, 19)
                 .allMatch(calculator::isPrime));
     }
 
     @Test
-    public void testIsPrimeWithComposites() throws Exception {
+    public void testIsPrimeWithComposites() {
         assertFalse(Stream.of(4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20)
                 .anyMatch(calculator::isPrime));
     }
@@ -53,7 +53,7 @@ public class PrimesTest {
     }
 
     @Test
-    public void emptyStreamsDanger() throws Exception {
+    public void emptyStreamsDanger() {
         assertTrue(Stream.empty().allMatch(e -> false));
         assertTrue(Stream.empty().noneMatch(e -> true));
         assertFalse(Stream.empty().anyMatch(e -> true));

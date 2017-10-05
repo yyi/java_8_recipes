@@ -11,7 +11,7 @@ public class PalindromeEvaluatorTest {
     private PalindromeEvaluator demo = new PalindromeEvaluator();
 
     @Test
-    public void isPalindrome() throws Exception {
+    public void isPalindrome() {
         assertTrue(
                 Stream.of("Madam, in Eden, I'm Adam",
                         "Go hang a salami; I'm a lasagna hog",
