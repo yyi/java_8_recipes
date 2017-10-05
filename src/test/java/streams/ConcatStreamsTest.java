@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 public class ConcatStreamsTest {
 
     @Test
-    public void concat() throws Exception {
+    public void concat() {
         Stream<String> first = Stream.of("a", "b", "c").parallel();
         Stream<String> second = Stream.of("X", "Y", "Z");
         List<String> strings = Stream.concat(first, second)
@@ -24,7 +24,7 @@ public class ConcatStreamsTest {
     }
 
     @Test
-    public void concatThree() throws Exception {
+    public void concatThree() {
         Stream<String> first = Stream.of("a", "b", "c").parallel();
         Stream<String> second = Stream.of("X", "Y", "Z");
         Stream<String> third = Stream.of("alpha", "beta", "gamma");
@@ -36,7 +36,7 @@ public class ConcatStreamsTest {
     }
 
     @Test
-    public void reduce() throws Exception {
+    public void reduce() {
         Stream<String> first = Stream.of("a", "b", "c").parallel();
         Stream<String> second = Stream.of("X", "Y", "Z");
         Stream<String> third = Stream.of("alpha", "beta", "gamma");
@@ -51,7 +51,7 @@ public class ConcatStreamsTest {
     }
 
     @Test
-    public void flatMap() throws Exception {
+    public void flatMap() {
         Stream<String> first = Stream.of("a", "b", "c").parallel();
         Stream<String> second = Stream.of("X", "Y", "Z");
         Stream<String> third = Stream.of("alpha", "beta", "gamma");
@@ -65,7 +65,7 @@ public class ConcatStreamsTest {
     }
 
     @Test
-    public void concatParallel() throws Exception {
+    public void concatParallel() {
         Stream<String> first = Stream.of("a", "b", "c").parallel();
         Stream<String> second = Stream.of("X", "Y", "Z");
         Stream<String> third = Stream.of("alpha", "beta", "gamma");
@@ -76,7 +76,7 @@ public class ConcatStreamsTest {
     }
 
     @Test
-    public void reduceParallel() throws Exception {
+    public void reduceParallel() {
         Stream<String> first = Stream.of("a", "b", "c").parallel();
         Stream<String> second = Stream.of("X", "Y", "Z");
         Stream<String> third = Stream.of("alpha", "beta", "gamma");
@@ -88,7 +88,7 @@ public class ConcatStreamsTest {
     }
 
     @Test
-    public void flatMapNotParallel() throws Exception {
+    public void flatMapNotParallel() {
         Stream<String> first = Stream.of("a", "b", "c").parallel();
         Stream<String> second = Stream.of("X", "Y", "Z");
         Stream<String> third = Stream.of("alpha", "beta", "gamma");
@@ -100,7 +100,7 @@ public class ConcatStreamsTest {
     }
 
     @Test
-    public void flatMapParallel() throws Exception {
+    public void flatMapParallel() {
         Stream<String> first = Stream.of("a", "b", "c").parallel();
         Stream<String> second = Stream.of("X", "Y", "Z");
         Stream<String> third = Stream.of("alpha", "beta", "gamma");
@@ -115,7 +115,7 @@ public class ConcatStreamsTest {
     }
 
     @Test
-    public void flatMapFindFirst() throws Exception {
+    public void flatMapFindFirst() {
         Stream<String> first = Stream.of("a", "b", "c").parallel();
         Stream<String> second = Stream.of("X", "Y", "Z");
         Stream<String> third = Stream.of("alpha", "beta", "gamma");
@@ -128,7 +128,7 @@ public class ConcatStreamsTest {
     }
 
     @Test
-    public void flatMapFindAny() throws Exception {
+    public void flatMapFindAny() {
         Stream<String> first = Stream.of("a", "b", "c").parallel();
         Stream<String> second = Stream.of("X", "Y", "Z");
         Stream<String> third = Stream.of("alpha", "beta", "gamma");

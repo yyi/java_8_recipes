@@ -23,7 +23,7 @@ public class SortingMapsTest {
     }
 
     @Test
-    public void getMapSortedByKey() throws Exception {
+    public void getMapSortedByKey() {
         sm.getMapSortedByKey().keySet().stream()
             .reduce((prev, curr) -> {
                 assertTrue(prev.compareTo(curr) <= 0);
@@ -32,7 +32,7 @@ public class SortingMapsTest {
     }
 
     @Test
-    public void getMapSortedByKeyDesc() throws Exception {
+    public void getMapSortedByKeyDesc() {
         sm.getMapSortedByKeyDesc().keySet().stream()
                 .reduce((prev, curr) -> {
                     assertTrue(prev.compareTo(curr) >= 0);
@@ -41,7 +41,7 @@ public class SortingMapsTest {
     }
 
     @Test
-    public void getMapSortedByValue() throws Exception {
+    public void getMapSortedByValue() {
         sm.getMapSortedByValue().values().stream()
                 .reduce((prev, curr) -> {
                     assertTrue(prev.compareTo(curr) <= 0);
@@ -50,7 +50,7 @@ public class SortingMapsTest {
     }
 
     @Test
-    public void getMapSortedByValueDesc() throws Exception {
+    public void getMapSortedByValueDesc() {
         Map<String, Integer> result = sm.getMapSortedByValueDesc();
         result.values().stream()
                 .reduce((prev, curr) -> {

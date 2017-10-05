@@ -58,7 +58,7 @@ public class Demo {
             System.out.println(i);
         }
 
-        List<Object> objects = new ArrayList<Object>();
+        List<Object> objects = new ArrayList<>();
         objects.add("Hello");
         objects.add(LocalDate.now());
         objects.add(3);

@@ -34,7 +34,7 @@ public class WordMapTest {
     }
 
     @Test
-    public void checkSampleFile() throws Exception {
+    public void checkSampleFile() {
         Map<String, Long> map = this.wordMap.createMap();
         assertEquals(sample.size(), map.size());
         sample.forEach((word, count) -> {

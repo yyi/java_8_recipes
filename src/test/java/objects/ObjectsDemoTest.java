@@ -14,13 +14,13 @@ public class ObjectsDemoTest {
     private ObjectsDemo demo = new ObjectsDemo();
 
     @Test
-    public void getStrings() throws Exception {
+    public void getStrings() {
         List<String> strings = Arrays.asList("this", "is", "a", "list", "of", "strings");
         assertTrue(Objects.deepEquals(strings, demo.getStrings()));
     }
 
     @Test
-    public void getNonNullStrings() throws Exception {
+    public void getNonNullStrings() {
         List<String> strings = Arrays.asList("this", "is", "a", null, "list", "of", null, "strings");
         demo.setStrings(strings);
         assertTrue(Objects.deepEquals(
@@ -29,7 +29,7 @@ public class ObjectsDemoTest {
     }
 
     @Test
-    public void getNonNullElements() throws Exception {
+    public void getNonNullElements() {
         Random random = new Random();
         List<Double> doubles = random.doubles()
                 .limit(10)

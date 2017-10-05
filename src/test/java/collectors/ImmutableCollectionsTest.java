@@ -13,7 +13,7 @@ public class ImmutableCollectionsTest {
     private ImmutableCollections demo = new ImmutableCollections();
 
     @Test(expected = UnsupportedOperationException.class)
-    public void createImmutableList() throws Exception {
+    public void createImmutableList() {
         List<String> list = demo.createImmutableList("this", "is", "a", "list");
         assertEquals(4, list.size());
         assertEquals("this", list.get(0));
@@ -24,7 +24,7 @@ public class ImmutableCollectionsTest {
     }
 
     @Test(expected = UnsupportedOperationException.class)
-    public void createImmutableListJava7() throws Exception {
+    public void createImmutableListJava7() {
         List<String> list = demo.createImmutableListJava7("this", "is", "a", "list");
         assertEquals(4, list.size());
         assertEquals("this", list.get(0));
@@ -35,7 +35,7 @@ public class ImmutableCollectionsTest {
     }
 
     @Test(expected = UnsupportedOperationException.class)
-    public void createImmutableSet() throws Exception {
+    public void createImmutableSet() {
         Set<String> set = demo.createImmutableSet("a", "b", "b", "c");
         assertEquals(3, set.size());
         assertTrue(set.contains("a"));
@@ -45,7 +45,7 @@ public class ImmutableCollectionsTest {
     }
 
     @Test(expected = UnsupportedOperationException.class)
-    public void createImmutableSetJava7() throws Exception {
+    public void createImmutableSetJava7() {
         Set<String> set = demo.createImmutableSetJava7("a", "b", "b", "c");
         assertEquals(3, set.size());
         assertTrue(set.contains("a"));
@@ -55,7 +55,7 @@ public class ImmutableCollectionsTest {
     }
 
     @Test(expected = UnsupportedOperationException.class)
-    public void immutableMap() throws Exception {
+    public void immutableMap() {
         demo.map.put("a", 5);
     }
 

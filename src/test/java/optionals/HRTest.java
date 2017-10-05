@@ -30,7 +30,7 @@ public class HRTest {
     }
 
     @Test
-    public void hireNotNull() throws Exception {
+    public void hireNotNull() {
         int id = hr.hire(new Employee("River Tam"));
         assertTrue(hr.findEmployeeById(id).isPresent());
     }
@@ -41,13 +41,13 @@ public class HRTest {
     }
 
     @Test
-    public void findEmployeeById() throws Exception {
+    public void findEmployeeById() {
         sampleEmployees
                 .forEach(e -> assertTrue(hr.findEmployeeById(e.getId()).isPresent()));
     }
 
     @Test
-    public void findEmployeesByIds1() throws Exception {
+    public void findEmployeesByIds1() {
         List<Integer> ids = sampleEmployees.stream()
                 .map(Employee::getId)
                 .collect(Collectors.toList());
@@ -62,7 +62,7 @@ public class HRTest {
     }
 
     @Test
-    public void findEmployeesByIds2() throws Exception {
+    public void findEmployeesByIds2() {
         List<Integer> ids = sampleEmployees.stream()
                 .map(Employee::getId)
                 .collect(Collectors.toList());

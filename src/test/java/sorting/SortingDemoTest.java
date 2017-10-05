@@ -29,12 +29,12 @@ public class SortingDemoTest {
     }
 
     @Test
-    public void testAlphaSort() throws Exception {
+    public void testAlphaSort() {
         checkAlphabetical(demo.alphaSort());
     }
 
     @Test
-    public void testLengthReverseSortWithComparator() throws Exception {
+    public void testLengthReverseSortWithComparator() {
         List<String> strings = demo.lengthReverseSortWithComparator().stream()
                 .sorted((s1, s2) -> -1)
                 .collect(Collectors.toList());
@@ -42,27 +42,27 @@ public class SortingDemoTest {
     }
 
     @Test
-    public void testLengthSortWithLambda() throws Exception {
+    public void testLengthSortWithLambda() {
         checkLength(demo.lengthSortWithLambda());
     }
 
     @Test
-    public void testLengthSortUsingCompare() throws Exception {
+    public void testLengthSortUsingCompare() {
         checkLength(demo.lengthSortWithLambda());
     }
 
     @Test
-    public void testLengthSortVerbose() throws Exception {
+    public void testLengthSortVerbose() {
         checkLength(demo.lengthSortWithLambda());
     }
 
     @Test
-    public void testLengthSortComparator() throws Exception {
+    public void testLengthSortComparator() {
         checkLength(demo.lengthSortWithLambda());
     }
 
     @Test
-    public void testLengthSortThenAlphaSort() throws Exception {
+    public void testLengthSortThenAlphaSort() {
         demo.lengthSortThenAlphaSort().stream()
                 .reduce((prev, curr) -> {
                     if (prev.length() != curr.length()) {
@@ -75,12 +75,12 @@ public class SortingDemoTest {
     }
 
     @Test
-    public void testLengthSortUsingSorted() throws Exception {
+    public void testLengthSortUsingSorted() {
         checkLength(demo.lengthSortWithLambda());
     }
 
     @Test
-    public void testLengthSortThenAlphaSortUsingSorted() throws Exception {
+    public void testLengthSortThenAlphaSortUsingSorted() {
         demo.lengthSortThenAlphaSortUsingSorted().stream()
                 .reduce((prev, curr) -> {
                     if (prev.length() != curr.length()) {

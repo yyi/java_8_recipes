@@ -23,27 +23,27 @@ public class UsePersonTest {
     }
 
     @Test
-    public void createPersonListJava7() throws Exception {
+    public void createPersonListJava7() {
         assertThat(up.createPersonListJava7(), containsInAnyOrder(people));
     }
 
     @Test
-    public void createPersonList() throws Exception {
+    public void createPersonList() {
         assertThat(up.createPersonList(), containsInAnyOrder(people));
     }
 
     @Test
-    public void createPersonList_CtorRef() throws Exception {
+    public void createPersonList_CtorRef() {
         assertThat(up.createPersonList_CtorRef(), containsInAnyOrder(people));
     }
 
     @Test
-    public void createPersonList_2ArgCtrRef() throws Exception {
+    public void createPersonList_2ArgCtrRef() {
         assertThat(up.createPersonList_2ArgCtrRef(), containsInAnyOrder(people));
     }
 
     @Test
-    public void copyConstructor() throws Exception {
+    public void copyConstructor() {
         Person before = new Person("Grace Hopper");
 
         List<Person> people = Stream.of(before)
@@ -67,7 +67,7 @@ public class UsePersonTest {
     }
 
     @Test
-    public void varargsConstructor() throws Exception {
+    public void varargsConstructor() {
         List<Person> persons = Arrays.stream(people)
                 .map(Person::getName)          // Stream<String>
                 .map(name -> name.split(" "))  // Stream<String[]>
@@ -77,17 +77,17 @@ public class UsePersonTest {
     }
 
     @Test
-    public void createPersonLinkedList() throws Exception {
+    public void createPersonLinkedList() {
         assertThat(up.createPersonLinkedList(), containsInAnyOrder(people));
     }
 
     @Test
-    public void createPersonArray() throws Exception {
+    public void createPersonArray() {
         assertThat(Arrays.asList(up.createPersonArray()), containsInAnyOrder(people));
     }
 
     @Test
-    public void createPersonListUsingNew() throws Exception {
+    public void createPersonListUsingNew() {
         assertThat(up.createPersonListUsingNew(), containsInAnyOrder(people));
     }
 

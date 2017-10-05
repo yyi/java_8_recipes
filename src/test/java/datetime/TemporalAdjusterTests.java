@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 
 public class TemporalAdjusterTests {
     @Test
-    public void adjusters() throws Exception {
+    public void adjusters() {
         LocalDateTime start = LocalDateTime.of(2017, Month.FEBRUARY, 2, 11, 30);
         LocalDateTime end = start.with(TemporalAdjusters.firstDayOfNextMonth());
         assertEquals("2017-03-01T11:30", end.toString());

@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 
 public class PaydayAdjusterTest {
     @Test
-    public void payDay() throws Exception {
+    public void payDay() {
         TemporalAdjuster adjuster = new PaydayAdjuster();
         IntStream.rangeClosed(1, 14)
                 .mapToObj(day -> LocalDate.of(2017, Month.JULY, day))
@@ -25,7 +25,7 @@ public class PaydayAdjusterTest {
     }
 
     @Test
-    public void payDayWithMethodRef() throws Exception {
+    public void payDayWithMethodRef() {
         IntStream.rangeClosed(1, 14)
                 .mapToObj(day -> LocalDate.of(2017, Month.JULY, day))
                 .forEach(date ->

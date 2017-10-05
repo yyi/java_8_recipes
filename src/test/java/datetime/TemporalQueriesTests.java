@@ -17,7 +17,7 @@ import static org.junit.Assert.assertTrue;
 @SuppressWarnings("Duplicates")
 public class TemporalQueriesTests {
     @Test
-    public void queries() throws Exception {
+    public void queries() {
         assertEquals(DAYS, LocalDate.now().query(precision()));
         assertEquals(NANOS, LocalTime.now().query(precision()));
 
@@ -42,7 +42,7 @@ public class TemporalQueriesTests {
     }
 
     @Test
-    public void pirateDay() throws Exception {
+    public void pirateDay() {
         IntStream.range(10, 19)
                 .mapToObj(n -> LocalDate.of(2017, Month.SEPTEMBER, n))
                 .forEach(date ->

@@ -83,7 +83,7 @@ public class ProcessDictionary {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         ProcessDictionary processDictionary = new ProcessDictionary();
         processDictionary.printTenLongestWords();
         processDictionary.printWordsOfEachLength();

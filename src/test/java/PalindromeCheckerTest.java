@@ -14,7 +14,7 @@ public class PalindromeCheckerTest {
     );
 
     @Test
-    public void isPalidromeUsingLambda() throws Exception {
+    public void isPalidromeUsingLambda() {
         palindromes.forEach(s -> {
                     StringBuilder sb = new StringBuilder();
                     for (char c : s.toCharArray()) {
@@ -30,7 +30,7 @@ public class PalindromeCheckerTest {
     }
 
     @Test
-    public void isPalidromeUsingMethodRef() throws Exception {
+    public void isPalidromeUsingMethodRef() {
         assertTrue(
                 palindromes.stream()
                         .allMatch(PalindromeChecker::checkPalindrome));

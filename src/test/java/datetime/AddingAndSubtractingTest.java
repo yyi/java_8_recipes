@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 
 public class AddingAndSubtractingTest {
     @Test
-    public void localDatePlus() throws Exception {
+    public void localDatePlus() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate start = LocalDate.of(2017, Month.FEBRUARY, 2);
 
@@ -29,7 +29,7 @@ public class AddingAndSubtractingTest {
     }
 
     @Test
-    public void localDateMinus() throws Exception {
+    public void localDateMinus() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate start = LocalDate.of(2017, Month.FEBRUARY, 2);
 
@@ -47,7 +47,7 @@ public class AddingAndSubtractingTest {
     }
 
     @Test
-    public void localTimePlus() throws Exception {
+    public void localTimePlus() {
         DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_TIME;
 
         LocalTime start = LocalTime.of(11, 30, 0, 0);
@@ -66,7 +66,7 @@ public class AddingAndSubtractingTest {
     }
 
     @Test
-    public void localTimeMinus() throws Exception {
+    public void localTimeMinus() {
         DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_TIME;
 
         LocalTime start = LocalTime.of(11, 30, 0, 0);
@@ -85,7 +85,7 @@ public class AddingAndSubtractingTest {
     }
 
     @Test
-    public void plus_minus() throws Exception {
+    public void plus_minus() {
         Period period = Period.of(2, 3, 4); // 2 years, 3 months, 4 days
         LocalDateTime start = LocalDateTime.of(2017, Month.FEBRUARY, 2, 11, 30);
         LocalDateTime end = start.plus(period);
@@ -105,7 +105,7 @@ public class AddingAndSubtractingTest {
     }
 
     @Test
-    public void with() throws Exception {
+    public void with() {
         LocalDateTime start = LocalDateTime.of(2017, Month.FEBRUARY, 2, 11, 30);
         LocalDateTime end = start.withMinute(45);
         assertEquals("2017-02-02T11:45:00", end.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
@@ -124,13 +124,13 @@ public class AddingAndSubtractingTest {
     }
 
     @Test(expected = DateTimeException.class)
-    public void withInvalidDate() throws Exception {
+    public void withInvalidDate() {
         LocalDateTime start = LocalDateTime.of(2017, Month.FEBRUARY, 2, 11, 30);
         start.withDayOfMonth(29);
     }
 
     @Test
-    public void temporalField() throws Exception {
+    public void temporalField() {
         LocalDateTime start = LocalDateTime.of(2017, Month.JANUARY, 31, 11, 30);
         LocalDateTime end = start.with(ChronoField.MONTH_OF_YEAR, 2);
         assertEquals("2017-02-28T11:30:00", end.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));

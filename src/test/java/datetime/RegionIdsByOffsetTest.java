@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 @SuppressWarnings("Duplicates")
 public class RegionIdsByOffsetTest {
     @Test
-    public void getRegionNamesForGMT() throws Exception {
+    public void getRegionNamesForGMT() {
         List<String> names = RegionIdsByOffset.getRegionNamesForOffset(0, 0);
 
         assertTrue(names.contains("GMT"));
@@ -22,7 +22,7 @@ public class RegionIdsByOffsetTest {
     }
 
     @Test
-    public void getRegionNamesForNepal() throws Exception {
+    public void getRegionNamesForNepal() {
         List<String> names = RegionIdsByOffset.getRegionNamesForOffset(5, 45);
 
         assertTrue(names.contains("Asia/Kathmandu"));
@@ -30,7 +30,7 @@ public class RegionIdsByOffsetTest {
     }
 
     @Test
-    public void getRegionNamesForNewYork() throws Exception {
+    public void getRegionNamesForNewYork() {
         ZoneId nyc = ZoneId.of("America/New_York");
         List<String> names = RegionIdsByOffset.getRegionNamesForZoneId(nyc);
 
@@ -41,7 +41,7 @@ public class RegionIdsByOffsetTest {
     }
 
     @Test
-    public void getRegionNamesForChicago() throws Exception {
+    public void getRegionNamesForChicago() {
         ZoneId chicago = ZoneId.of("America/Chicago");
         List<String> names = RegionIdsByOffset.getRegionNamesForZoneId(chicago);
 
@@ -52,7 +52,7 @@ public class RegionIdsByOffsetTest {
     }
 
     @Test
-    public void getRegionNamesForSystemDefault() throws Exception {
+    public void getRegionNamesForSystemDefault() {
         ZonedDateTime now = ZonedDateTime.now();
         ZoneId zoneId = now.getZone();
         List<String> names = RegionIdsByOffset.getRegionNamesForZoneId(zoneId);

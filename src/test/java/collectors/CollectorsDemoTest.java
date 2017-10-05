@@ -11,34 +11,34 @@ public class CollectorsDemoTest {
     private CollectorsDemo demo = new CollectorsDemo();
 
     @Test
-    public void createList() throws Exception {
+    public void createList() {
         List<String> nameList = demo.createList();
         assertEquals(7, nameList.size());
         assertEquals(ArrayList.class, nameList.getClass());
     }
 
     @Test
-    public void createSet() throws Exception {
+    public void createSet() {
         Set<String> nameSet = demo.createSet();
         assertEquals(6, nameSet.size());
         assertEquals(HashSet.class, nameSet.getClass());
     }
 
     @Test
-    public void createDeque() throws Exception {
+    public void createDeque() {
         Deque<String> nameDeque = demo.createDeque();
         assertEquals(7, nameDeque.size());
         assertEquals(ArrayDeque.class, nameDeque.getClass());
     }
 
     @Test
-    public void createArray() throws Exception {
+    public void createArray() {
         String[] names = demo.createArray();
         assertEquals(4, names.length);
     }
 
     @Test
-    public void evenLengthStrings() throws Exception {
+    public void evenLengthStrings() {
         List<String> evenLengthStrings =
                 demo.evenLengthStrings("here", "are", "a", "few", "strings");
         evenLengthStrings.forEach(s -> {
@@ -47,7 +47,7 @@ public class CollectorsDemoTest {
     }
 
     @Test
-    public void evenLengthStringSet() throws Exception {
+    public void evenLengthStringSet() {
         SortedSet<String> stringSet = demo.oddLengthStringSet("here", "are", "a", "few", "strings");
         System.out.println(stringSet);
         stringSet.forEach(s -> assertTrue(s.length() % 2 != 0));

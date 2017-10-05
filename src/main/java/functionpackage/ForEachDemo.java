@@ -20,7 +20,7 @@ public class ForEachDemo {
 
         strings.forEach(System.out::println);
 
-        Consumer printer = System.out::println;
+        Consumer<String> printer = System.out::println;
         strings.forEach(printer);
     }
 }

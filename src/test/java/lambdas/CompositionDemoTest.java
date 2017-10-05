@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 public class CompositionDemoTest {
 
     @Test
-    public void perfectSquares() throws Exception {
+    public void perfectSquares() {
         assertTrue(CompositionDemo.isPerfect(4));
         assertTrue(CompositionDemo.isPerfect(9));
         assertTrue(CompositionDemo.isPerfect(16));
@@ -24,7 +24,7 @@ public class CompositionDemoTest {
     }
 
     @Test
-    public void prime() throws Exception {
+    public void prime() {
         assertTrue(CompositionDemo.isPrime(2));
         assertTrue(CompositionDemo.isPrime(3));
         assertTrue(CompositionDemo.isPrime(5));
@@ -40,7 +40,7 @@ public class CompositionDemoTest {
     }
 
     @Test
-    public void triangular() throws Exception {
+    public void triangular() {
         assertTrue(CompositionDemo.isTriangular(1));
         assertTrue(CompositionDemo.isTriangular(3));
         assertTrue(CompositionDemo.isTriangular(6));
@@ -56,7 +56,7 @@ public class CompositionDemoTest {
     }
 
     @Test
-    public void triangularAndPerfect() throws Exception {
+    public void triangularAndPerfect() {
         IntPredicate triangular = CompositionDemo::isTriangular;
         IntPredicate perfect = CompositionDemo::isPerfect;
         IntPredicate both = triangular.and(perfect);

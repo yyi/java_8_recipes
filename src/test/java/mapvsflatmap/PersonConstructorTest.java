@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 public class PersonConstructorTest {
 
     @Test
-    public void personConstructors() throws Exception {
+    public void personConstructors() {
         Stream.of("Spock", "Data")
                 .map(Person::new)
                 .forEach(System.out::println);

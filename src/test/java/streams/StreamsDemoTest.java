@@ -16,35 +16,35 @@ public class StreamsDemoTest {
     }
 
     @Test
-    public void testJoinUpperCase() throws Exception {
+    public void testJoinUpperCase() {
         assertEquals("THIS IS A LIST OF STRINGS", demo.joinUpperCase());
     }
 
     @Test
-    public void testGetTotalLength() throws Exception {
+    public void testGetTotalLength() {
         assertEquals(20, demo.getTotalLength());
     }
 
     @Test
-    public void testSumFirstNBigDecimals() throws Exception {
+    public void testSumFirstNBigDecimals() {
         assertThat(demo.sumFirstNBigDecimals(10),
                 is(closeTo(1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10, 0.01)));
     }
 
     @Test
-    public void testSumFirstNBigDecimalsWithPrecision() throws Exception {
+    public void testSumFirstNBigDecimalsWithPrecision() {
         System.out.println(demo.sumFirstNBigDecimalsWithPrecision(10));
     }
 
     @Test
-    public void testSumRandoms1() throws Exception {
+    public void testSumRandoms1() {
         int num = 1000;
         double err = num * 0.05;
         assertThat(demo.sumRandoms1(num), is(closeTo(num / 2, err)));
     }
 
     @Test
-    public void testSumRandoms2() throws Exception {
+    public void testSumRandoms2() {
         int num = 1000;
         double err = num * 0.05;
         assertThat(demo.sumRandoms2(num), is(closeTo(num / 2, err)));
@@ -56,7 +56,7 @@ public class StreamsDemoTest {
     }
 
     @Test
-    public void testSumRandoms3() throws Exception {
+    public void testSumRandoms3() {
         int num = 1000;
         double err = num * 0.05;
         assertThat(demo.sumRandoms3(num), is(closeTo(num / 2, err)));

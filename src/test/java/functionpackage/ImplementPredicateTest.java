@@ -22,23 +22,23 @@ public class ImplementPredicateTest {
     }
 
     @Test
-    public void getNames() throws Exception {
+    public void getNames() {
         String expected = "Inara, Jayne, Kaylee, Mal, River, Shepherd Book, Simon, Wash, Zoë";
         assertEquals(expected, demo.getNames(names));
     }
 
     @Test
-    public void getNamesOfLength5() throws Exception {
+    public void getNamesOfLength5() {
         assertEquals("Inara, Jayne, River, Simon", demo.getNamesOfLength(5, names));
     }
 
     @Test
-    public void getNamesStartingWithS() throws Exception {
+    public void getNamesStartingWithS() {
         assertEquals("Shepherd Book, Simon", demo.getNamesStartingWith("S", names));
     }
 
     @Test
-    public void getNamesSatisfyingCondition() throws Exception {
+    public void getNamesSatisfyingCondition() {
         assertEquals("Inara, Jayne, River, Simon",
                 demo.getNamesSatisfyingCondition(s -> s.length() == 5, names));
         assertEquals("Shepherd Book, Simon",
@@ -50,7 +50,7 @@ public class ImplementPredicateTest {
     }
 
     @Test
-    public void composedPredicate() throws Exception {
+    public void composedPredicate() {
         assertEquals("Simon",
                 demo.getNamesSatisfyingCondition(
                         LENGTH_FIVE.and(STARTS_WITH_S), names));
