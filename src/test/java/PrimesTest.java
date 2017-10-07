@@ -29,6 +29,8 @@ public class PrimesTest {
     public void testIsPrimeWithComposites() {
         assertFalse(Stream.of(4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20)
                 .anyMatch(calculator::isPrime));
+        assertTrue(Stream.of(4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20)
+                .noneMatch(calculator::isPrime));
     }
 
     @Test
