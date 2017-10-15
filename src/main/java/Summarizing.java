@@ -20,7 +20,7 @@ public class Summarizing {
 //                    System.out.println(n);
 //                    return n;
 //                })
-                //.peek(System.out::println)
+//                .peek(System.out::println)
                 .limit(10)
                 .forEach(System.out::println);
     }

@@ -28,7 +28,7 @@ public class MethodReferencesDemo {
 
         Stream.of("this", "is", "a", "stream", "of", "strings")
                 .mapToInt((s) -> s.length())
-                .forEach((x) -> System.out.println(x));
+                .forEach(x -> System.out.println(x));
 
         List<String> sorted = Stream.of("this", "is", "a", "list", "of", "strings")
                 .sorted((s1, s2) -> s1.compareTo(s2))
