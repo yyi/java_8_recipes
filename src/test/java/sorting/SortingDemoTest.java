@@ -12,7 +12,7 @@ public class SortingDemoTest {
 
     private void checkAlphabetical(List<String> strings) {
         strings.stream()
-                .reduce("", (prev, curr) -> {
+                .reduce((prev, curr) -> {
                             assertTrue(prev.compareTo(curr) <= 0);
                             return curr;
                         }

@@ -42,7 +42,11 @@ public class StreamsDemo {
                 .limit(num)
                 // .peek(x -> System.out.println("The value is " + x))
                 // .reduce(BigDecimal.ZERO, BigDecimal::add);
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
+                .reduce(BigDecimal.ZERO,
+                        (accumulater, val) -> {
+                            System.out.printf("%s, %s%n", accumulater, val);
+                            return accumulater.add(val);
+                        });
     }
 
     public Double sumRandoms1(int num) {
