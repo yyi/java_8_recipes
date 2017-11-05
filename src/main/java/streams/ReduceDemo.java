@@ -57,10 +57,7 @@ public class ReduceDemo {
 
         BigDecimal total = Stream.iterate(BigDecimal.ONE, n -> n.add(BigDecimal.ONE))
                 .limit(10)
-                .reduce(BigDecimal.ZERO, (acc, val) -> {
-                    System.out.println("acc=" + acc + ", val=" + val);
-                    return acc.add(val);
-                });
+                .reduce(BigDecimal.ZERO, (acc, val) -> acc.add(val));
         System.out.println("The total is " + total);
 
         Integer max = Stream.of(3, 1, 4, 1, 5, 9)
@@ -91,7 +88,6 @@ public class ReduceDemo {
         // Best (or at least simplest)
         s = Stream.of("this", "is", "a", "list")
                 .collect(Collectors.joining());
-
 
         List<Book> books = Arrays.asList(
                 new Book(1, "Modern Java Recipes"),

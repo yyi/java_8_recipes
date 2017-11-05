@@ -1,8 +1,11 @@
 package streams;
 
+import java.util.logging.Logger;
 import java.util.stream.IntStream;
 
 public class PeekDemo {
+    private Logger logger = Logger.getLogger(PeekDemo.class.getName());
+
     public int sumUpTo(int num) {
         return IntStream.rangeClosed(1, num)
                 .sum();
@@ -16,7 +19,7 @@ public class PeekDemo {
 
     public int sumDoublesDivisibleBy3(int start, int end) {
         return IntStream.rangeClosed(start, end)
-                .peek(n -> System.out.printf("original: %d%n", n))
+                .peek(n -> logger.fine(String.format("original: %d%n", n)))
                 .map(n -> n * 2)
                 .peek(n -> System.out.printf("doubled : %d%n", n))
                 .filter(n -> n % 3 == 0)

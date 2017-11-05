@@ -24,6 +24,8 @@ public class UseFilenameFilter {
         names = dir.list((dr, name) -> name.endsWith(".java"));
         System.out.println(Arrays.asList(names));
 
+        Arrays.asList(names).forEach(System.out::println);
+
         names = dir.list(new MyFilter());
         System.out.println(Arrays.asList(names));
     }

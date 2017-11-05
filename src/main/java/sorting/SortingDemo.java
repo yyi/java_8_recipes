@@ -1,9 +1,6 @@
 package sorting;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 import static java.util.Comparator.*;
 import static java.util.stream.Collectors.toList;
@@ -69,6 +66,7 @@ public class SortingDemo {
     // Sort by length then alpha using sorted
     public List<String> lengthSortThenAlphaSortUsingSorted() {
         return sampleStrings.stream()
+                .filter(Objects::nonNull)
                 .sorted(comparingInt(String::length)
                         .thenComparing(naturalOrder()))
                 .collect(toList());
@@ -77,6 +75,7 @@ public class SortingDemo {
     // Sort by length then reverse alpha using sorted
     public List<String> lengthSortThenReverseAlphaUsingSorted() {
         return sampleStrings.stream()
+                .filter(Objects::nonNull)
                 .sorted(comparing(String::length)
                         .thenComparing(reverseOrder()))
                 .collect(toList());

@@ -12,7 +12,7 @@ public class AntarcticaTimeZones {
     public static void main(String[] args) {
         LocalDateTime now = LocalDateTime.now();
         List<ZonedDateTime> antarticZones =
-                ZoneId.getAvailableZoneIds().stream()
+                ZoneId.getAvailableZoneIds().stream()  // Stream<String>
                         .filter(regionId -> regionId.contains("Antarctica"))
                         .map(ZoneId::of)  // Stream<ZoneId>
                         .map(now::atZone) // Stream<ZonedDateTime>

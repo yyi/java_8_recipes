@@ -1,8 +1,6 @@
 package lambdas;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -18,7 +16,7 @@ public class ConsumerDemo {
         });
 
         // Lambda expression
-        integers.forEach(x -> System.out.println("The current value is " + x));
+        integers.forEach(x -> System.out.println("The value of x is " + x));
 
         // Method reference
         integers.forEach(System.out::println);
@@ -28,5 +26,10 @@ public class ConsumerDemo {
                 .filter(n -> n % 3 == 0)       // Predicate to only return multiples of 3
                 .collect(Collectors.toSet());  // Convert stream to a Set
         System.out.println(nums);
+
+        Deque<Integer> collection = integers.stream()
+                .map(n -> n * 2)
+                .filter(n -> n % 3 == 0)
+                .collect(Collectors.toCollection(ArrayDeque::new));
     }
 }

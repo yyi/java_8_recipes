@@ -62,8 +62,7 @@ public class ExceptionHandling {
                     try {
                         return URLEncoder.encode(s, "UTF-8");
                     } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                        return "";
+                        throw new RuntimeException(e);
                     }
                 })
                 .collect(Collectors.toList());

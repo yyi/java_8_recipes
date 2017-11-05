@@ -18,7 +18,7 @@ public class WordMap {
     public Map<String, Long> createMap() {
         try (Stream<String> lines = Files.lines(resourceDir.resolve(fileName))) {
             return lines.flatMap(line -> line.length() == 0 ? Stream.empty() :
-                            Stream.of(line.split("\\s")))
+                            Stream.of(line.split(" ")))
                     .map(String::toLowerCase)
                     .collect(groupingBy(Function.identity(), counting()));
         } catch (IOException e) {

@@ -3,7 +3,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class IterableDemo {
-    @SuppressWarnings("Convert2MethodRef")
+    // @SuppressWarnings("Convert2MethodRef")
     public static void main(String[] args) {
         List<Integer> nums = Arrays.asList(3, 1, 4, 1, 5, 9);
         // forEach loop
@@ -12,7 +12,7 @@ public class IterableDemo {
         }
 
         // lambda expression
-        nums.forEach(n -> System.out.println(n));
+        nums.forEach(x -> System.out.println(x));
 
         // method reference
         nums.forEach(System.out::println);

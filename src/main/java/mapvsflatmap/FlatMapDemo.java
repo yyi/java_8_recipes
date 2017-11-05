@@ -6,24 +6,7 @@ import java.util.stream.Stream;
 
 public class FlatMapDemo {
     public static void main(String[] args) {
-        /*
-        List<String> lines = Arrays.asList("this is a sentence", "", "this is another one",
-                "here is one with lots of words", "one", "word");
 
-        lines.stream()
-                .map(line -> line.split("\\W+"))
-                .forEach(array -> System.out.println(Arrays.asList(array)));
-
-        lines.stream()
-                .map(line -> line.split("\\W+"))
-                .map(Arrays::stream)
-                .forEach(stream -> System.out.println(stream.collect(Collectors.toList())));
-
-        lines.stream()
-                .map(line -> line.split("\\W+"))
-                .flatMap(Arrays::stream)
-                .forEach(System.out::println);
-*/
         Customer sheridan = new Customer("Sheridan");
         Customer ivanova = new Customer("Ivanova");
         Customer garibaldi = new Customer("Garibaldi");
