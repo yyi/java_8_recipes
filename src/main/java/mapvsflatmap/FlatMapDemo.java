@@ -21,17 +21,22 @@ public class FlatMapDemo {
 
         // map for 1-1 customer to name --> Stream<String>
         customers.stream()
-                .map(Customer::getName)
+                .map(Customer::getName) // function<Customer,String>
                 .forEach(System.out::println);
 
         // map 1-many customer to orders --> Stream<List<Order>>
         customers.stream()
-                .map(Customer::getOrders)
+                .map(Customer::getOrders) // function<Customer,List<Order>>
                 .forEach(System.out::println);
 
         // map 1-many customer to orders.stream() --> Stream<Stream<Order>>
         customers.stream()
-                .map(customer -> customer.getOrders().stream())
+                .map(customer -> customer.getOrders().stream()) // function<Customer,Stream<Order>>
+                .forEach(System.out::println);
+
+        // stream() on an empty collection is already an empty Stream
+        customers.stream()
+                .flatMap(customer -> customer.getOrders().stream()) // function<Customer,Stream<Order>>
                 .forEach(System.out::println);
 
         // flatMap 1-many customer to orders.stream() --> Stream<Order>
@@ -43,9 +48,5 @@ public class FlatMapDemo {
                                 customer.getOrders().stream())
                 .forEach(System.out::println);
 
-        // stream() on an empty collection is already an empty Stream
-        customers.stream()
-                .flatMap(customer -> customer.getOrders().stream())
-                .forEach(System.out::println);
     }
 }

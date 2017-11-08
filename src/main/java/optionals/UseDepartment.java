@@ -8,6 +8,7 @@ public class UseDepartment {
 
         // Department with a manager
         Department d = new Department();
+        d.setName("Construction");
         d.setBoss(mrSlate);
 
         System.out.println("Boss: " + d.getBoss());
@@ -22,6 +23,10 @@ public class UseDepartment {
         System.out.println("Name: " +
                 d.getBoss().orElse(new Manager("Unknown")).getName());
         // prints: Name: Mr. Slate
+
+        System.out.println("Name: " +
+                d.getBoss().map(Manager::getName)); // function<Manager,String>
+        // prints: Name: Optional[Mr. Slate]
 
         System.out.println("Name: " +
                 d1.getBoss().orElse(new Manager("Unknown")).getName());
@@ -41,7 +46,7 @@ public class UseDepartment {
         // prints: Company Dept: Optional[Department{boss=Manager{name='Mr. Slate'}}]
 
         System.out.println("Company Dept Manager: " + co.getDepartment()
-            .map(Department::getBoss));
+            .map(Department::getBoss)); // function <Department,Optional<Manager>>
         // prints: Company Dept Manager: Optional[Optional[Manager{name='Mr. Slate'}]]
 
         System.out.println(
@@ -54,7 +59,7 @@ public class UseDepartment {
         System.out.println(company
                 .flatMap(Company::getDepartment)
                 .flatMap(Department::getBoss)
-                .map(Manager::getName)
+                .map(Manager::getName).orElse("No Manager Name")
         );
 
     }
