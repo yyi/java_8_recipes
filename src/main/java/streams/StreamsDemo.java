@@ -43,9 +43,9 @@ public class StreamsDemo {
                 // .peek(x -> System.out.println("The value is " + x))
                 // .reduce(BigDecimal.ZERO, BigDecimal::add);
                 .reduce(BigDecimal.ZERO,
-                        (accumulater, val) -> {
-                            System.out.printf("%s, %s%n", accumulater, val);
-                            return accumulater.add(val);
+                        (accumulator, val) -> {
+                            System.out.printf("%s, %s%n", accumulator, val);
+                            return accumulator.add(val);
                         });
     }
 

@@ -46,7 +46,7 @@ public class UseDepartment {
         // prints: Company Dept: Optional[Department{boss=Manager{name='Mr. Slate'}}]
 
         System.out.println("Company Dept Manager: " + co.getDepartment()
-            .map(Department::getBoss)); // function <Department,Optional<Manager>>
+                .map(Department::getBoss)); // function <Department,Optional<Manager>>
         // prints: Company Dept Manager: Optional[Optional[Manager{name='Mr. Slate'}]]
 
         System.out.println(
@@ -56,10 +56,11 @@ public class UseDepartment {
 
         Optional<Company> company = Optional.of(co);
 
-        System.out.println(company
-                .flatMap(Company::getDepartment)
-                .flatMap(Department::getBoss)
-                .map(Manager::getName).orElse("No Manager Name")
+        System.out.println(
+                company
+                        .flatMap(Company::getDepartment)
+                        .flatMap(Department::getBoss)
+                        .map(Manager::getName).orElse("No Manager Name")
         );
 
     }
