@@ -43,10 +43,7 @@ public class StreamsDemo {
                      // .peek(x -> System.out.println("The value is " + x))
                      // .reduce(BigDecimal.ZERO, BigDecimal::add);
                      .reduce(BigDecimal.ZERO,
-                             (accumulator, val) -> {
-                                 System.out.printf("%s, %s%n", accumulator, val);
-                                 return accumulator.add(val);
-                             });
+                             (accumulator, val) -> accumulator.add(val));
     }
 
     public Double sumRandoms1(int num) {
