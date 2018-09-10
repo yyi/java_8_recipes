@@ -15,7 +15,7 @@ import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 
 public class ProcessDictionary {
-    private Path dictionary = Paths.get("/usr/share/dict/words");
+    private Path dictionary = Paths.get("F:\\开发\\java_8_recipes\\src\\main\\resources\\words");
 
     public void printTenLongestWords() {
         System.out.println("\nTen Longest Words:");
@@ -71,7 +71,7 @@ public class ProcessDictionary {
     public void printSortedMapOfWordsUsingBufferedReader() {
         System.out.println("\nNumber of words of each length (desc order):");
         try (Stream<String> lines =
-                     new BufferedReader(new FileReader("/usr/share/dict/words")).lines()) {
+                     new BufferedReader(new FileReader("F:\\开发\\java_8_recipes\\src\\main\\resources\\words")).lines()) {
             Map<Integer, Long> map = lines.filter(s -> s.length() > 20)
                     .collect(groupingBy(String::length, counting()));
 
